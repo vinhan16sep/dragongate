@@ -63,7 +63,7 @@ class Banner extends Admin_Controller{
 		$this->output->set_status_header(200)->set_output(json_encode(array('isExists' => $isExists)));
 	}
 
-	public function not_active()
+	public function deactive()
 	{
 		$id = $_GET['id'];
 		$isExists = false;
