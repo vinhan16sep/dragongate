@@ -14,6 +14,8 @@
             </div>
             <ul class="sidebar-menu tree" data-widget="tree">
                 <li class="header">MAIN NAVIGATION</li>
+                <!--Dashboard-->
+                
                 <li class="">
                     <a href="<?php echo base_url('admin/dashboard'); ?>">
                         <i class="fa fa-tachometer" aria-hidden="true"></i>
@@ -21,6 +23,38 @@
                         <span class="pull-right-container"></span>
                     </a>
                 </li>
+                <!-- end Dashboard -->
+                
+                
+                <!-- Banner -->
+                <li class="">
+                    <a href="<?php echo base_url('admin/banner/index'); ?>">
+                        <i class="fa fa-picture-o" aria-hidden="true"></i>
+                        <span>Banner</span>
+                        <span class="pull-right-container"></span>
+                    </a>
+                </li>
+                <!-- end Banner -->
+                
+                
+                <li class="treeview">
+                    <a href=""><i class="fa fa-graduation-cap" aria-hidden="true"></i> Đăng ký nhập học
+                        <span class="pull-right-container">
+                    <span class="label label-primary pull-right">2</span>
+                  </span>
+                    </a>
+
+                    <ul class="treeview-menu">
+                        <li class="">
+                            <a href=""><i class="fa fa-minus" aria-hidden="true"></i> Chờ xử lý</a>
+                        </li>
+
+                        <li class="">
+                            <a href=""><i class="fa fa-minus" aria-hidden="true"></i> Đã hoàn thành</a>
+                        </li>
+                    </ul>
+                </li>
+
             </ul>
             
         </section>

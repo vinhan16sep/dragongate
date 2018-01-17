@@ -64,4 +64,12 @@ class Banner_model extends CI_Model {
         return true;
     }
 
+    public function update($id, $active)
+    {
+        $this->db->set('is_actived', $active);
+        $this->db->where('id', $id);
+        $this->db->update('banner');
+        return true;
+    }
+
 }
