@@ -14,7 +14,7 @@
             </div>
             <ul class="sidebar-menu tree" data-widget="tree">
                 <li class="header">MAIN NAVIGATION</li>
-                <li class="<?php echo ($active == 'dashboard')? 'active' : '' ?>">
+                <li class="">
                     <a href="<?php echo base_url('admin/dashboard'); ?>">
                         <i class="fa fa-tachometer" aria-hidden="true"></i>
                         <span>Dashboard</span>
@@ -22,6 +22,7 @@
                     </a>
                 </li>
             </ul>
+            
         </section>
         <!-- /.sidebar -->
     </aside>
