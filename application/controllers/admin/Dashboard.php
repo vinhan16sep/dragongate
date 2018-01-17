@@ -6,7 +6,6 @@ class Dashboard extends Admin_Controller {
         parent::__construct();
 
         $this->load->helper('url');
-        $this->load->model('contact_model');
     }
 
     public function index(){
