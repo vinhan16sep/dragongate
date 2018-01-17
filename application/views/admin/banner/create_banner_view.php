@@ -23,18 +23,19 @@
                         </div>
                         <div class="form-group">
                             <?php
-                            echo form_label('Tiêu đề', 'text');
-                            echo form_error('text');
-                            echo form_input('text', set_value('text'), 'class="form-control text"');
-                            ?>
-                        </div>
-                        <div class="form-group">
-                            <?php
                             echo form_label('Url', 'url');
                             echo form_error('url');
                             echo form_input('url', set_value('url'), 'class="form-control url"');
                             ?>
                         </div>
+                        <div class="form-group">
+                            <?php
+                            echo form_label('Tiêu đề', 'text');
+                            echo form_error('text');
+                            echo form_input('text', set_value('text'), 'class="form-control text"');
+                            ?>
+                        </div>
+                        
                     </div>
                 </div>
             </div>

@@ -6,62 +6,47 @@
                 <span><?php echo $this->session->flashdata('message'); ?></span>
             </div>
             <div >
-                <a type="button" href="<?php echo site_url('admin/banner/create'); ?>" class="btn btn-primary">ADD NEW</a>
+                <a type="button" href="<?php echo site_url('admin/banner/create'); ?>" class="btn btn-primary">THÊM MỚI BANNER</a>
             </div>
             <div >
-                <div  style="margin-top: 10px;">
-                    <?php
-                    echo '<table class="table table-hover table-bordered table-condensed">';
-                    echo '<tr>';
-                    echo '<td><b><a href="#">Title</a></b></td>';
-                    echo '<td><b><a href="#">Image</a></b></td>';
-                    echo '<td><b>Operations</b></td>';
-                    echo '</tr>';
-                    if (!empty($banners)) {
-                        foreach ($banners as $item):
-                            echo '<tr>';
-                            echo '<td>' . $item['text'] . '</td>';
-                            echo '<td><img src="' . site_url('assets/upload/banner/' . $item['image']) . '" /></td>';
-                            echo '<td>';
-                            echo '<a href="'.base_url('admin/banner/remove').'" title="Xóa" class="btn-remove" data-id="'.$item['id'].'" >';
-                            echo '<i class="fa fa-trash-o" aria-hidden="true"></i>';
-                            echo '</tr>';
-                        endforeach;
-                    }else {
-                        echo '<tr class="odd"><td colspan="9">No records</td></tr>';
-                    }
-                    echo '</table>';
-                    ?>
+                <div style="margin-top: 10px;">
+                    <?php if (isset($banners)): ?>
+                        <table class="table table-hover table-bordered table-condensed">
+                            <tr>
+                                <td><b><a href="#">Image</a></b></td>
+                                <td><b><a href="#">Đường dẫn</a></b></td>
+                                <td><b><a href="#">Trạng thái</a></b></td>
+                                <td><b>Operations</b></td>
+                            </tr>
+                            <?php foreach ($banners as $key => $value): ?>
+                                <tr>
+                                    <td><img src="<?php echo base_url('assets/upload/banner/'.$value['image']) ?>"></td>
+                                    <td><?php echo $value['url'] ?></td>
+                                    <?php if ($value['is_actived'] == 1): ?>
+                                        <td><button class="btn btn-success btn-is-active" data-id="<?php echo $value['id'] ?>"  title="Tắt banner"><i class="fa fa-check" aria-hidden="true"></i></button></td>
+                                    <?php else: ?>
+                                        <td><button class="btn btn-danger btn-not-active" data-id="<?php echo $value['id'] ?>"  title="Bật banner"><i class="fa fa-times" aria-hidden="true"></i></button></td>
+                                    <?php endif ?>
+                                    <td>
+                                        <a href="<?php echo base_url('admin/banner/remove/'.$value['id']) ?>" title="Xóa" class="btn-remove" data-id="<?php echo $value['id'] ?>" >
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php endforeach ?>
+                        </table>
+                    <?php else: ?>
+                        <table class="table table-hover table-bordered table-condensed">
+                            <tr>
+                                Không có banner tồn tại
+                            </tr>
+                        </table>
+                    <?php endif ?>
                     <div class="col-md-6 col-md-offset-5">
-                        <?php echo $page_links; ?>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 </div>
-<script>
-    var url = '<?php echo base_url('admin/banner/delete') ?>';
-
-    function confirmDelete(id){
-        if (confirm('Chắc chắn xoá?')) {
-            $.ajax({
-                url: url,
-                method: 'GET',
-                data: {
-                    id: id
-                },
-                success: function(res){
-                    alert('Image ' + res.image + ' has deleted successful');
-                    location.reload();
-                },
-                error: function(){
-                    alert('Delete unsuccessful');
-                }
-            });
-        } else {
-            return false;
-        }
-    }
-
-</script>
+<script src="<?php echo site_url('assets/admin/'); ?>js/admin/banner.js"></script>
