@@ -9,7 +9,7 @@
                     <?php
                     echo form_open_multipart('', array('class' => 'form-horizontal'));
                     ?>
-                    <div class="form-group picture">
+                    <div class="form-group">
                         <?php
                         echo form_label('Tiêu đề', 'title');
                         echo form_error('title');
@@ -18,7 +18,7 @@
                     </div>
                     <div class="form-group picture">
                         <?php
-                        echo form_label('Image', 'image');
+                        echo form_label('Hình ảnh', 'image');
                         echo form_error('image');
                         echo form_upload('image','','multiple');
                         ?>

@@ -24,7 +24,11 @@
                                     <td><?php echo $value['title'] ?></td>
                                     <td><?php echo $value['description'] ?></td>
                                     <td>
-                                        <a href="<?php echo base_url('admin/banner/remove/'.$value['id']) ?>" title="Xóa" class="btn-remove" data-id="<?php echo $value['id'] ?>" >
+                                        <a href="<?php echo base_url('admin/service/edit/'.$value['id']) ?>" title="Sửa" class="btn-edit" data-id="<?php echo $value['id'] ?>" >
+                                            <i class="fa fa-edit" aria-hidden="true"></i>
+                                        </a>
+                                        &nbsp&nbsp&nbsp&nbsp
+                                        <a href="<?php echo base_url('admin/service/remove') ?>" title="Xóa" class="btn-remove" data-id="<?php echo $value['id'] ?>" >
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                         </a>
                                     </td>
@@ -34,7 +38,7 @@
                     <?php else: ?>
                         <table class="table table-hover table-bordered table-condensed">
                             <tr>
-                                Không có banner tồn tại
+                                Không có dịch vụ tồn tại
                             </tr>
                         </table>
                     <?php endif ?>
@@ -45,4 +49,3 @@
         </div>
     </section>
 </div>
-<!-- <script src="<?php echo site_url('assets/admin/'); ?>js/admin/banner.js"></script> -->
