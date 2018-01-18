@@ -81,10 +81,14 @@ class Service extends Admin_Controller{
 					$data['image'] = $image;
 				}
                     try {
-                        $this->service_model->update($id, $data);
-                        $this->session->set_flashdata('message', 'Thêm dịch vụ thành công');
+                        if($this->service_model->update($id, $data) == true){
+                    		if($image != $service['image']){
+                    			unlink('assets/upload/service/'.$service['image']);
+                    		}
+                    	}
+                        $this->session->set_flashdata('message', 'Cập nhật dịch vụ thành công');
                     }catch (Exception $e) {
-                        $this->session->set_flashdata('message', 'Thêm dịch vụ thất bại: ' . $e->getMessage());
+                        $this->session->set_flashdata('message', 'Cập nhật dịch vụ thất bại: ' . $e->getMessage());
                     }
                     redirect('admin/service/index', 'refresh');
         	}

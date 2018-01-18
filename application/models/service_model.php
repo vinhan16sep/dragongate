@@ -17,6 +17,17 @@
 
 	        return $result = $this->db->get()->result_array();
 		}
+
+		public function get_all(){
+			
+			$this->db->select('*');
+	        $this->db->from('service');
+	        $this->db->where('is_deleted', 0);
+	        $this->db->order_by("id", "desc");
+
+	        return $result = $this->db->get()->result_array();
+		}
+
 		public function count_all(){
 		 	return $this->db->count_all_results('service');
 		}
