@@ -81,16 +81,16 @@ class Admin_Controller extends MY_Controller {
                 $upload_data = $this->upload->data();
                 $image = $upload_data['file_name'];
 
-                $config_thumb['source_image'] = $upload_path . '/' . $image;
-                $config_thumb['create_thumb'] = TRUE;
-                $config_thumb['maintain_ratio'] = TRUE;
-                $config_thumb['new_image'] = $upload_thumb_path;
-                $config_thumb['width'] = $thumbs_with;
-                $config_thumb['height'] = $thumbs_height;
+                // $config_thumb['source_image'] = $upload_path . '/' . $image;
+                // $config_thumb['create_thumb'] = TRUE;
+                // $config_thumb['maintain_ratio'] = TRUE;
+                // $config_thumb['new_image'] = $upload_thumb_path;
+                // $config_thumb['width'] = $thumbs_with;
+                // $config_thumb['height'] = $thumbs_height;
 
-                $this->load->library('image_lib', $config_thumb);
+                // $this->load->library('image_lib', $config_thumb);
 
-                $this->image_lib->resize();
+                // $this->image_lib->resize();
             }
         }
 
