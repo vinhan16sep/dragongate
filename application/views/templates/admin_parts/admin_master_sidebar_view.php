@@ -38,7 +38,7 @@
                 
                 
                 <li class="treeview">
-                    <a href=""><i class="fa fa-graduation-cap" aria-hidden="true"></i> Đăng ký nhập học
+                    <a href=""><i class="fa fa-graduation-cap" aria-hidden="true"></i> Dịch vụ
                         <span class="pull-right-container">
                     <span class="label label-primary pull-right">2</span>
                   </span>
@@ -46,11 +46,11 @@
 
                     <ul class="treeview-menu">
                         <li class="">
-                            <a href=""><i class="fa fa-minus" aria-hidden="true"></i> Chờ xử lý</a>
+                            <a href="<?php echo base_url('admin/service/index'); ?>"><i class="fa fa-minus" aria-hidden="true"></i> Danh mục dịch vụ</a>
                         </li>
 
                         <li class="">
-                            <a href=""><i class="fa fa-minus" aria-hidden="true"></i> Đã hoàn thành</a>
+                            <a href="<?php echo base_url('admin/subservice/index'); ?>"><i class="fa fa-minus" aria-hidden="true"></i> Dịch vụ</a>
                         </li>
                     </ul>
                 </li>

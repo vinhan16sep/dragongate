@@ -35,6 +35,21 @@ class MY_Controller extends CI_Controller {
         return $config;
     }
 
+    protected function convert_dropdown($original_array){
+        $dropdown = array();
+        if(!empty($original_array)){
+            foreach ($original_array as $key => $value) {
+                if(isset($value['name'])){
+                    $dropdown[$value['id']] = $value['name']; 
+                }
+                
+                $dropdown[$value['id']] = $value['title']; 
+            }
+        }
+
+        return $dropdown;
+    }
+
 }
 
 class Admin_Controller extends MY_Controller {
