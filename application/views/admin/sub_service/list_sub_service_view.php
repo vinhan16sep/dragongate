@@ -5,6 +5,22 @@
             <div >
                 <span><?php echo $this->session->flashdata('message'); ?></span>
             </div>
+
+            <div class="row">
+                <form action="<?php echo base_url('admin/subservice/index/') ?>" class="form-horizontal col-md-12 col-sm-12 col-xs-12" method="get" style="margin-bottom: 30px;">
+
+                    <input type="text" name="search" value="" placeholder="Tìm Kiếm Dịch Vụ ..." class="form-control" style=" width: 40%; float: left;margin-right: 5px;">
+
+                    <select name="search_service" class="form-control" style="width: 15%; float: left; margin-right: 5px;" id="search_place">
+                        <option value="" selected="selected">Chọn Danh Mục</option>
+                        <?php foreach ($services as $key => $value): ?>
+                            <option value="<?php echo $value['id'] ?>"><?php echo $value['title'] ?></option>
+                        <?php endforeach ?>
+                    </select>
+                    <input type="submit" name="btn-search" value="Tìm Kiếm" class="btn btn-primary" style="float: left">
+                </form>
+            </div>
+
             <div >
                 <a type="button" href="<?php echo site_url('admin/subservice/create'); ?>" class="btn btn-primary">THÊM MỚI DỊCH VỤ</a>
             </div>
@@ -42,7 +58,8 @@
                             </tr>
                         </table>
                     <?php endif ?>
-                    <div class="col-md-6 col-md-offset-5">
+                    <div class="col-md-6 col-md-offset-5 page">
+                        <?php echo $page_links ?>
                     </div>
                 </div>
             </div>

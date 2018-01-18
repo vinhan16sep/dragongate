@@ -5,6 +5,24 @@
             <div >
                 <span><?php echo $this->session->flashdata('message'); ?></span>
             </div>
+
+            <div class="row">
+                <form action="<?php echo base_url('admin/service/index/') ?>" class="form-horizontal col-md-12 col-sm-12 col-xs-12" method="get" style="margin-bottom: 30px;">
+
+                    <input type="text" name="search" value="" placeholder="Tìm Kiếm Danh Mục..." class="form-control" style=" width: 40%; float: left;margin-right: 5px;">
+                    <!-- <select name="search_place" class="form-control" style="width: 15%; float: left; margin-right: 5px;" id="search_place">
+                        <option value="" selected="selected">Chọn cơ sở</option>
+                        <?php foreach ($placement as $item): ?>
+                            <option value="<?php echo $item['id'] ?>"><?php echo $item['name'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <select name="search_grade" class="form-control" style="width: 20%; float: left; margin-right: 5px;" id="search_grade">
+                        <option value="" selected="selected">Chọn một cơ sở trước</option>
+                    </select> -->
+                    <input type="submit" name="btn-search" value="Tìm Kiếm" class="btn btn-primary" style="float: left">
+                </form>
+            </div>
+
             <div >
                 <a type="button" href="<?php echo site_url('admin/service/create'); ?>" class="btn btn-primary">THÊM MỚI DỊCH VỤ</a>
             </div>
@@ -42,7 +60,8 @@
                             </tr>
                         </table>
                     <?php endif ?>
-                    <div class="col-md-6 col-md-offset-5">
+                    <div class="col-md-6 col-md-offset-5 page">
+                        <?php echo $page_links ?>
                     </div>
                 </div>
             </div>

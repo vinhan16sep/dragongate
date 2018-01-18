@@ -66,13 +66,43 @@
 		}
 
 		public function get_by_id($id) {
-        $this->db->select('*');
-        $this->db->from('service');
-        $this->db->where('is_deleted', 0);
-        $this->db->where('id', $id);
-        $this->db->limit(1);
+	        $this->db->select('*');
+	        $this->db->from('service');
+	        $this->db->where('is_deleted', 0);
+	        $this->db->where('id', $id);
+	        $this->db->limit(1);
 
-        return $this->db->get()->row_array();
-    }
+	        return $this->db->get()->row_array();
+	    }
+
+	    public function count_search($search = null) {
+			$this->db->select('*')
+			 ->from('service');
+			$this->db->where('is_deleted', 0);
+
+			if($search != null){
+			 $this->db->like('title', $search);
+			}
+			return $this->db->get()->num_rows();
+	    }
+
+	    public function fetch_all($limit = NULL, $start = NULL, $like = null){
+	        $this->db->select('*');
+	        $this->db->from('service');
+	        $this->db->where('is_deleted', 0);
+	        $this->db->like('title', $like);
+	        $this->db->limit($limit, $start);
+	        $this->db->order_by('id', 'desc');
+	        $query = $this->db->get();
+
+	        if($query->num_rows() > 0){
+	            return $query->result_array();
+	        }
+
+	         return false;
+	    }
+
+
+
 	}
 ?>
