@@ -37,7 +37,7 @@
 			$this->db->update('service');
 
 			if($this->db->affected_rows() == 1){
-	            return $this->db->insert_id();
+	            return true;
 	        }
 	        return false;
 		}
