@@ -7,6 +7,29 @@
 		}
 
 		public function index(){
+			$this->load->model('service_model');
+			$this->data['services'] = $this->service_model->get_all();
+
+			$keywords = '';
+			$search_service = '';
+	        if($this->input->get('search')){
+	            $keywords = $this->input->get('search');
+	        }
+	        if($this->input->get('search_service')){
+	            $search_service = $this->input->get('search_service');
+	        }
+	        // echo $search_service;die;
+	        $total_rows  = $this->sub_service_model->count_search();
+	        if($keywords != ''){
+	            $total_rows  = $this->sub_service_model->count_search($keywords, null);
+	        }
+	        if($keywords != ''){
+	            $total_rows  = $this->sub_service_model->count_search(null, $search_service);
+	        }
+	        if($keywords != '' && $keywords != ''){
+	        	$total_rows  = $this->sub_service_model->count_search($keywords, $search_service);
+	        }
+
 			$this->load->library('pagination');
 			$config = array();
 			$base_url = base_url('admin/subservice/index');
@@ -20,7 +43,17 @@
 
 	        $this->data['page_links'] = $this->pagination->create_links();
 	        $this->data['page'] = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
-	        $this->data['sub_services'] = $this->sub_service_model->fetch_all_pagination($per_page, $this->data['page']);
+	        $result = $this->sub_service_model->fetch_all($per_page, $this->data['page']);
+	        if($keywords != ''){
+	            $result = $this->sub_service_model->fetch_all($per_page, $this->data['page'], $keywords);
+	        }
+	        if($search_service != ''){
+	            $result = $this->sub_service_model->fetch_all($per_page, $this->data['page'], null, $search_service);
+	        }
+	        if($keywords != '' && $keywords != ''){
+	        	$result = $this->sub_service_model->fetch_all($per_page, $this->data['page'], $keywords, $search_service);
+	        }
+	        $this->data['sub_services'] = $result;
 
 			$this->render('admin/sub_service/list_sub_service_view');
 		}
@@ -89,7 +122,7 @@
 					}
 	                    try {
 	                    	if($this->sub_service_model->update($id, $data) == true){
-	                    		if($image != $sub_service['image']){
+	                    		if(!empty($image) && $image != $sub_service['image']){
 	                    			unlink('assets/upload/sub_service/'.$sub_service['image']);
 	                    		}
 	                    	}
