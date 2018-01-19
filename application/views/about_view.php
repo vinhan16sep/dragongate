@@ -111,7 +111,7 @@
                     <div class="wrapper">
                         <p>Their testimonial videos aren't production quality, but they get the message across, cover useful &amp; relevant information which goes to show you don't need to invest thousands in production get some testimonial videos up with quality. </p>
                         <div class="name clearfix">
-                            <img src="images/home/3.jpg" alt="">
+                            <img src="<?php echo site_url('assets/public/img/home/3.jpg')?>" alt="">
                             <h5>Rashed Kabir</h5>
                             <span>Gazipur</span>
                         </div>
@@ -121,7 +121,7 @@
                     <div class="wrapper">
                         <p>Their testimonial videos aren't production quality, but they get the message across, cover useful &amp; relevant information which goes to show you don't need to invest thousands in production get some testimonial videos up with quality. </p>
                         <div class="name clearfix">
-                            <img src="images/home/4.jpg" alt="">
+                            <img src="<?php echo site_url('assets/public/img/home/4.jpg')?>" alt="">
                             <h5>Zubayer Hasan</h5>
                             <span>Uttara</span>
                         </div>
@@ -146,10 +146,12 @@
             <a href="team-v1.html" class="tran3s">See all</a>
         </div> <!-- /.title -->
         <div class="row">
+
+            <?php for($i = 0; $i < 3; $i++){ ?>
             <div class="col-md-4 col-xs-6">
                 <div class="single-team-member">
                     <div class="image">
-                        <img src="images/team/1.jpg" alt="">
+                        <img src="<?php echo site_url('assets/public/img/team/1.jpg')?>" alt="team">
                         <div class="opacity tran3s">
                             <ul class="tran3s">
                                 <li><a href="" class="tran3s"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -163,40 +165,8 @@
                     <p>CO-Founder &amp; Designer</p>
                 </div> <!-- /.single-team-member -->
             </div> <!-- /.col- -->
-            <div class="col-md-4 col-xs-6">
-                <div class="single-team-member">
-                    <div class="image">
-                        <img src="images/team/2.jpg" alt="">
-                        <div class="opacity tran3s">
-                            <ul class="tran3s">
-                                <li><a href="" class="tran3s"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="" class="tran3s"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="" class="tran3s"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                                <li><a href="" class="tran3s"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                    </div> <!-- /.image -->
-                    <h6>Mahfuz Riad</h6>
-                    <p>CO-Founder &amp; Designer</p>
-                </div> <!-- /.single-team-member -->
-            </div> <!-- /.col- -->
-            <div class="col-md-4 col-xs-6 hidden-sm">
-                <div class="single-team-member">
-                    <div class="image">
-                        <img src="images/team/3.jpg" alt="">
-                        <div class="opacity tran3s">
-                            <ul class="tran3s">
-                                <li><a href="" class="tran3s"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="" class="tran3s"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="" class="tran3s"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                                <li><a href="" class="tran3s"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                    </div> <!-- /.image -->
-                    <h6>Foqrul Islam</h6>
-                    <p>CO-Founder &amp; Designer</p>
-                </div> <!-- /.single-team-member -->
-            </div> <!-- /.col- -->
+            <?php } ?>
+
         </div> <!-- /.row -->
     </div> <!-- /.container -->
 </div> <!-- /.our-team-styleOne -->
@@ -214,24 +184,13 @@
             <p>We have show that some of our best partners ho all beside us</p>
         </div>
         <div class="row">
-            <div class="col-md-4 col-xs-6">
-                <div class="client-img"><img src="images/logo/p-5.png" alt=""></div>
+
+            <?php for($i = 0; $i < 8; $i++){ ?>
+            <div class="col-md-3 col-xs-6">
+                <div class="client-img"><img src="<?php echo site_url('assets/public/img/logo/p-5.png')?>" alt=""></div>
             </div>
-            <div class="col-md-4 col-xs-6">
-                <div class="client-img"><img src="images/logo/p-6.png" alt=""></div>
-            </div>
-            <div class="col-md-4 col-xs-6">
-                <div class="client-img"><img src="images/logo/p-7.png" alt=""></div>
-            </div>
-            <div class="col-md-4 col-xs-6">
-                <div class="client-img"><img src="images/logo/p-8.png" alt=""></div>
-            </div>
-            <div class="col-md-4 col-xs-6">
-                <div class="client-img"><img src="images/logo/p-9.png" alt=""></div>
-            </div>
-            <div class="col-md-4 col-xs-6">
-                <div class="client-img"><img src="images/logo/p-10.png" alt=""></div>
-            </div>
+            <?php } ?>
+
         </div>
     </div> <!-- /.container -->
 </div> <!-- /.trusted-client -->

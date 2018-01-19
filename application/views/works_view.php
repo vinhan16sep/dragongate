@@ -39,11 +39,11 @@
 
             <?php for($i = 0; $i < 6; $i++){ ?>
 
-            <div class="col-xs-6 mix finance marketing">
+            <div class="col-md-4 col-sm-6 col-xs-12 mix finance marketing">
                 <div class="single-item">
                     <img src="<?php echo site_url('assets/public/img/portfolio/11.jpg') ?>" alt="works">
                     <div class="opacity tran3s">
-                        <a href="portfolio-details.html" class="view-more tran3s"><i class="flaticon-plus"></i></a>
+                        <a href="<?php echo base_url('works/detail') ?>" class="view-more tran3s"><i class="flaticon-plus"></i></a>
                     </div>
                 </div> <!-- /.single-item -->
             </div> <!-- /.col-md-6 -->
@@ -52,3 +52,6 @@
         </div> <!-- /.row -->
     </div> <!-- /.container -->
 </div> <!-- /.gullu-portfolio -->
+
+<!-- mixitup -->
+<script type="text/javascript" src="<?php echo site_url('assets/public/vendor/jquery.mixitup.min.js') ?>"></script>

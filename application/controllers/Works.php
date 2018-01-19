@@ -12,4 +12,8 @@ class Works extends Public_Controller {
     public function index(){
         $this->render('works_view');
     }
+
+    public function detail(){
+        $this->render('detail_works_view');
+    }
 }

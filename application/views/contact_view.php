@@ -73,7 +73,11 @@
 
 <!-- Google Map _______________________ -->
 <div id="google-map-area">
-    <div class="google-map" id="contact-google-map" data-map-lat="40.925372" data-map-lng="-74.276544" data-map-title="Find Map" data-map-zoom="12"></div>
+    <div class="google-map" id="contact-google-map" data-map-lat="21.0166156" data-map-lng="105.8483495" data-map-title="Find Map" data-map-zoom="16"></div>
 </div>
+
+<!-- Google map js -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ8VrXgGZ3QSC-0XubNhuB2uKKCwqVaD0&callback=googleMap" type="text/javascript"></script> <!-- Gmap Helper -->
+<script src="<?php echo site_url('assets/public/vendor/gmaps.min.js') ?>"></script>
 
 <script type="text/javascript" src="<?php echo site_url('assets/public/js/map-script.js') ?>"></script>

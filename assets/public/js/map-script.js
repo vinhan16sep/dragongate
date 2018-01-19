@@ -194,7 +194,7 @@ function googleMap () {
 
       // if zoom not defined the zoom value will be 15;
       if (!mapZoom) {
-        var mapZoom = 12;
+        var mapZoom = 16;
       };
       // init map
       var map;
