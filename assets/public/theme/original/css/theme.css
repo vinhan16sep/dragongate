@@ -1,0 +1,65 @@
+/*
+
+CSS for Theme
+
+Author: hung.luong@matocreative.vn
+
+*/
+
+/* CSS Header */
+
+#main_logo{
+    width: 120px;
+    height: 108px ;
+    background: url(../img/logo.png);
+    background-size: 100%;
+    margin-left: 50px;
+}
+
+/* CSS Body */
+
+#team > .item .inner .wrapper{
+    background-color: #e87717;
+}
+
+
+/* CSS Footer */
+
+.footer{
+    padding-top: 30px;
+    padding-bottom: 50px;
+    background-color: #3A3C42;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+/* CSS Reset Bootstrap */
+
+.btn-primary{
+    color: #fff;
+    background-color: #e87717;
+    border-color: #e87717;
+}
+
+.btn-primary:hover{
+    color: #fff;
+    background-color: #d8271c;
+    border-color: #d8271c;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+    color: #fff;
+    background-color: #d8271c;
+    border-color: #d8271c;
+}
+
+.form-control:focus {
+    border-color: #d8271c;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255,222,0, .6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255,222,0, .6);
+}
+
+.modal#survey_modal .modal-header{
+    background-image: url(../img/bg_modal_header.png);
+}
