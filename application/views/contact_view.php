@@ -1,13 +1,15 @@
+<link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/public/css/contact.css') ?>">
+
 <!--
-			=============================================
-				Theme Inner Banner
-			==============================================
-			-->
+=============================================
+    Theme Inner Banner
+==============================================
+-->
 <div class="inner-page-banner">
     <div class="opacity">
         <h1>Contact US</h1>
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="<?php echo base_url('homepage') ?>">Home</a></li>
             <li>/</li>
             <li>Contact</li>
         </ul>
@@ -38,7 +40,7 @@
                 <div class="contact-address">
                     <h2>Don’t Hesitate to contact with us for any kind of information</h2>
                     <p>Call us for imiditate support this number</p>
-                    <a href="#" class="tran3s">880 876 65 455</a>
+                    <a href="#" class="tran3s">(+84) 926.895.555</a>
                     <ul>
                         <li><a href="" class="tran3s"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                         <li><a href="" class="tran3s"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>

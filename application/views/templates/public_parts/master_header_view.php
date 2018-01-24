@@ -11,7 +11,7 @@
     <title>Dragon Gate</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="56x56" href="<?php echo site_url('assets/public/img/fav-icon/icon.png') ?>">
+    <link rel="icon" type="image/png" sizes="56x56" href="<?php echo site_url('assets/public/img/favicon.png') ?>">
 
 
     <!-- Main style sheet -->
@@ -76,7 +76,11 @@
         <div class="header-wrapper">
             <div class="container">
                 <!-- Logo -->
-                <div class="logo float-left tran4s"><a href="<?php echo base_url('homepage') ?>"><img src="<?php echo site_url('assets/public/img/logo/logoDG.png') ?>" alt="Logo"></a></div>
+                <div class="logo float-left tran4s">
+                    <a href="<?php echo base_url('homepage') ?>">
+                        <img src="<?php echo site_url('assets/public/img/logo.png') ?>" alt="Logo">
+                    </a>
+                </div>
 
                 <!-- ============================ Theme Menu ========================= -->
                 <nav class="theme-main-menu float-right navbar" id="mega-menu-wrapper">
