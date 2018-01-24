@@ -1,0 +1,7 @@
+.inner-page-banner {
+    background: url(../img/cover/cover_services.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    margin-bottom: 190px;
+}

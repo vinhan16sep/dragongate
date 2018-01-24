@@ -1,39 +1,19 @@
+
+<link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/public/css/homepage.css') ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/public/css/hover.css') ?>">
+
 <!--
 =============================================
-    Theme Main Banner
+    Theme Inner Banner
 ==============================================
 -->
-<div id="theme-main-banner" class="banner-two">
-    <div data-src="<?php echo site_url('assets/public/img/home/slide-2.jpg') ?>">
-        <div class="camera_caption">
-            <div class="container">
-                <h5 class="wow fadeInUp animated">We’r Awesome</h5>
-                <h1 class="wow fadeInUp animated" data-wow-delay="0.2s">Branding &amp; consulting <br>Solution for client.</h1>
-                <a href="course-2-column.html" class="tran3s hvr-trim wow fadeInUp animated p-bg-color button-one" data-wow-delay="0.3s">Explore Now</a>
-                <div class="play-option wow fadeInRight animated" data-wow-delay="0.255s">
-                    <div class="watch-video">
-                        <h6>Watch</h6>
-                        <h4>Intro Video</h4>
-                        <a data-fancybox href="https://www.youtube.com/embed/r-AuLm7S3XE?rel=0&amp;showinfo=0" class="tran3s"><i class="fa fa-play" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div> <!-- /.container -->
-        </div> <!-- /.camera_caption -->
-    </div>
-    <div data-src="<?php echo site_url('assets/public/img/home/slide-3.jpg') ?>">
-        <div class="camera_caption">
-            <div class="container">
-                <h5 class="wow fadeInUp animated">We’r Awesome</h5>
-                <h1 class="wow fadeInUp animated" data-wow-delay="0.2s">Branding &amp; consulting <br>Solution for client.</h1>
-                <a href="course-2-column.html" class="tran3s hvr-trim wow fadeInUp animated p-bg-color button-one" data-wow-delay="0.3s">Explore Now</a>
-                <div class="play-option wow fadeInRight animated" data-wow-delay="0.255s">
-                    <div class="watch-video">
-                        <h6>Watch</h6>
-                        <h4>Intro Video</h4>
-                        <a data-fancybox href="https://www.youtube.com/embed/r-AuLm7S3XE?rel=0&amp;showinfo=0" class="tran3s"><i class="fa fa-play" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div> <!-- /.container -->
-        </div> <!-- /.camera_caption -->
-    </div>
-</div> <!-- /#theme-main-banner -->
+<div class="inner-page-banner" data-vide-bg="mp4: <?php echo site_url('assets/public/video/showreel.mp4') ?>, webm: video/ocean, poster: <?php echo site_url('assets/public/img/cover/cover_homepage.jpg') ?>"
+data-vide-options="position:0% 50%">
+    <div class="opacity">
+        <h1>Dragon Gate</h1>
+        <br>
+        <a class="btn btn-primary hvr-icon-forward wow fadeInUp" href="<?php echo base_url('works') ?>" role="button">Check out our works</a>
+    </div> <!-- /.opacity -->
+</div> <!-- /inner-page-banner -->
+
+<script src="<?php echo site_url('assets/public/js/jquery.vide.js') ?>"></script>

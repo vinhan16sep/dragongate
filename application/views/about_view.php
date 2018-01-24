@@ -1,13 +1,15 @@
+<link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/public/css/about.css') ?>">
+
 <!--
-			=============================================
-				Theme Inner Banner
-			==============================================
-			-->
+=============================================
+    Theme Inner Banner
+==============================================
+-->
 <div class="inner-page-banner">
     <div class="opacity">
         <h1>Company Story</h1>
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="<?php echo base_url('homepage') ?>">Home</a></li>
             <li>/</li>
             <li>About us</li>
         </ul>
@@ -24,10 +26,10 @@
 <div class="about-text">
     <div class="container">
         <div class="title">
-            <h6>WELCOME TO GULL.LY</h6>
+            <h6>WELCOME TO DRAGON GATE</h6>
             <h2>We’r a dynamic team of creatives people <br>innovation &amp; Marketing Expert.</h2>
         </div>
-        <img src="images/inner-page/1.jpg" alt="">
+        <img src="<?php echo site_url('assets/public/img/inner-page/1.jpg')?>" alt="">
         <div class="about-tab-wrapper clearfix">
             <ul class="nav nav-tabs float-left">
                 <li class="active"><a data-toggle="tab" href="#history">Our History</a></li>
@@ -45,6 +47,8 @@
                 </div> <!-- /#vision -->
                 <div id="contact" class="tab-pane fade">
                     <p>We provide marketing services to startups and small businesses to looking for a partner of their digital media, design &amp; dev, lead generation, and communications requirents. We work with you, not for you. Although we have great resources.</p>
+                    <br>
+                    <a class="btn btn-primary hvr-icon-forward wow fadeInUp" href="<?php echo base_url('works') ?>" role="button">Feel free to contact us</a>
                 </div> <!-- /#contact -->
                 <div id="news" class="tab-pane fade">
                     <p>We provide marketing services to startups and small businesses to looking for a partner of their digital media, design &amp; dev, lead generation, and communications requirents. We work with you, not for you. Although we have great resources.</p>
@@ -100,6 +104,7 @@
 ==============================================
 -->
 <div class="testimonial-section bg-image">
+    <div class="testimonial-wrapper"></div>
     <div class="container">
         <div class="main-container col-md-6 col-md-offset-6">
             <div class="theme-title">
@@ -143,7 +148,7 @@
     <div class="container">
         <div class="title">
             <h2>Our team member will ready <br>for your service</h2>
-            <a href="team-v1.html" class="tran3s">See all</a>
+            <!--<a href="team-v1.html" class="tran3s">See all</a>-->
         </div> <!-- /.title -->
         <div class="row">
 
@@ -151,12 +156,12 @@
             <div class="col-md-4 col-xs-6">
                 <div class="single-team-member">
                     <div class="image">
-                        <img src="<?php echo site_url('assets/public/img/team/1.jpg')?>" alt="team">
+                        <img src="<?php echo site_url('assets/public/img/team/member_about.jpg')?>" alt="team">
                         <div class="opacity tran3s">
                             <ul class="tran3s">
                                 <li><a href="" class="tran3s"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                                 <li><a href="" class="tran3s"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="" class="tran3s"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                                <li><a href="" class="tran3s"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                                 <li><a href="" class="tran3s"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>

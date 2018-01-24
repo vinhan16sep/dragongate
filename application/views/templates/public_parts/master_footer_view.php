@@ -3,14 +3,16 @@
     Footer
 ==============================================
 -->
-<footer class="bg-one">
+<footer class="bg-two">
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="footer-logo">
-                    <a href="index.html"><img src="images/logo/logo.png" alt="Logo"></a>
-                    <h5><a href="#" class="tran3s">gulluinc@gmail.com</a></h5>
-                    <h6 class="p-color">202. 277. 3894</h6>
+                    <a href="<?php echo base_url('homepage') ?>">
+                        <img src="<?php echo site_url('assets/public/img/logo_f.png') ?>" alt="Logo">
+                    </a>
+                    <h5><a href="javascript:void(0);" class="tran3s">sales@dragongate.vn</a></h5>
+                    <h6 class="p-color">(+84) 926.895.555</h6>
                 </div>
             </div>
             <div class="col-md-9 col-sm-6 col-xs-12 footer-subscribe">

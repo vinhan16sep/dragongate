@@ -1,0 +1,28 @@
+.inner-page-banner {
+    background: url(../img/cover/cover_about.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    margin-bottom: 190px;
+}
+
+.btn-primary{
+    color: #fff;
+    background: #e67e22;
+
+    border-radius: 15px;
+
+    padding: 10px 15px;
+
+    text-transform: uppercase;
+}
+
+.btn-primary:hover{
+    background: #e67e22;
+}
+
+.testimonial-section .container,
+.testimonial-section h2,
+.testimonial-section h6{
+    color: #fff !important;
+}
