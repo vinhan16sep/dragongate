@@ -46,13 +46,21 @@
 
                     <ul class="treeview-menu">
                         <li class="">
-                            <a href="<?php echo base_url('admin/service/index'); ?>"><i class="fa fa-minus" aria-hidden="true"></i> Danh mục dịch vụ</a>
+                            <a href="<?php echo base_url('admin/service/index'); ?>"><i class="fa fa-minus" aria-hidden="true"></i> Dịch vụ</a>
                         </li>
 
                         <li class="">
-                            <a href="<?php echo base_url('admin/subservice/index'); ?>"><i class="fa fa-minus" aria-hidden="true"></i> Dịch vụ</a>
+                            <a href="<?php echo base_url('admin/subservice/index'); ?>"><i class="fa fa-minus" aria-hidden="true"></i> Hạng mục</a>
                         </li>
                     </ul>
+                </li>
+
+                <li class="">
+                    <a href="<?php echo base_url('admin/work/index'); ?>">
+                        <i class="fa fa-picture-o" aria-hidden="true"></i>
+                        <span>Công việc</span>
+                        <span class="pull-right-container"></span>
+                    </a>
                 </li>
 
             </ul>

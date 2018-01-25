@@ -77,7 +77,7 @@
             return $this->db->get()->num_rows();
         }
 
-         public function fetch_all($limit = NULL, $start = NULL, $like = null, $service_id = null){
+        public function fetch_all($limit = NULL, $start = NULL, $like = null, $service_id = null){
             $this->db->select('*');
             $this->db->from('sub_service');
             $this->db->where('is_deleted', 0);
@@ -93,7 +93,23 @@
                 return $query->result_array();
             }
 
-             return false;
+            return false;
+        }
+
+        public function getIdService($service_id = null){
+            $this->db->select('*');
+            $this->db->from('sub_service');
+            $this->db->where('is_deleted', 0);
+            if($service_id != null){
+                $this->db->where('service_id', $service_id);
+            }
+            $this->db->order_by('id', 'desc');
+            $query = $this->db->get();
+            if($query->num_rows() > 0){
+                return $query->result_array();
+            }
+
+            return false;
         }
     }
 ?>
