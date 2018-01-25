@@ -1,0 +1,122 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<div class="content-wrapper" style="min-height: 916px;">
+    <section class="row">
+        <div class="container col-md-12">
+            <div class="modified-mode">
+                <div class="col-lg-10 col-lg-offset-0" style="margin-left: 15px;">
+                    <h1>THÊM MỚI DỊCH VỤ</h1>
+                    <?php
+                    echo form_open_multipart('', array('class' => 'form-horizontal'));
+                    ?>
+
+                    <div class="form-group">
+                        <?php
+                        echo form_label('Tiêu đề', 'title');
+                        echo form_error('title');
+                        echo form_input('title', set_value('title', $work['title']), 'class="form-control" id="title"');
+                        ?>
+                    </div>
+
+                    <div class="form-group">
+                        <?php
+                        echo form_label('Url', 'url');
+                        echo form_error('url');
+                        echo form_input('url', set_value('url', $work['url']), 'class="form-control" id="url"');
+                        ?>
+                    </div>
+
+                    <div class="form-group">
+                        <?php
+                        echo form_label('Thể loại', 'type');
+                        echo form_error('type');
+                        echo form_dropdown('type', set_value('type', $types),$work['type'], 'class="form-control" id="type"');
+                        ?>
+                    </div>
+
+                    <div class="form-group">
+                        <?php
+                        echo form_label('Dịch vụ', 'service');
+                        echo form_error('service');
+                        echo form_dropdown('service', set_value('service', $service_array),$work['service_id'], 'class="form-control" id="service"');
+                        ?>
+                    </div>
+
+                    <div class="form-group">
+                        <?php
+                        echo form_label('Dịch vụ con', 'sub_service');
+                        echo form_error('sub_service');
+                        echo form_dropdown('sub_service', set_value('sub_service'),$work['sub_service_id'], 'class="form-control" id="sub_service"');
+                        ?>
+                    </div>
+
+                    <div class="form-group picture">
+                        <label for="image">Hình ảnh đang sử dụng</label>
+                        <br>
+                        <img src="<?php echo base_url('assets/upload/service/'.$work['image']) ?>">
+                    </div>
+
+                    <div class="form-group picture">
+                        <?php
+                        echo form_label('Hình ảnh', 'image');
+                        echo form_error('image');
+                        echo form_upload('image','','multiple');
+                        ?>
+                    </div>
+                    
+                    <div class="form-group">
+                        <?php
+                        echo form_label('Giới thiệu', 'description');
+                        echo form_error('description');
+                        echo form_textarea('description', set_value('description', $work['description']), 'class="form-control" rows="5" ')
+                        ?>
+                    </div>
+
+                    <div class="form-group">
+                        <?php
+                        echo form_label('Nội dung', 'content');
+                        echo form_error('content');
+                        echo form_textarea('content', set_value('content', $work['content'], false), 'class="form-control content"')
+                        ?>
+                    </div>
+                    <div class="form-group col-sm-12 text-right">
+                        <?php
+                        echo form_submit('submit', 'OK', 'class="btn btn-primary"');
+                        echo form_close();
+                        ?>
+                        <a class="btn btn-default cancel" href="javascript:window.history.go(-1);">Go back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script type="text/javascript" src="<?php echo site_url('tinymce/tinymce.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo site_url('assets/admin/js/admin/work.js'); ?>"></script>
+<script>
+    tinymce.init({
+        selector: ".content",
+        theme: "modern",
+        height: 200,
+        relative_urls: false,
+        remove_script_host: false,
+        plugins: [
+            "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+            "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+            "save table contextmenu directionality emoticons template paste textcolor responsivefilemanager"
+        ],
+        content_css: "css/content.css",
+        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | responsivefilemanager | print preview media fullpage | forecolor backcolor emoticons",
+        style_formats: [
+            {title: "Bold text", inline: "b"},
+            {title: "Red text", inline: "span", styles: {color: "#ff0000"}},
+            {title: "Red header", block: "h1", styles: {color: "#ff0000"}},
+            {title: "Example 1", inline: "span", classes: "example1"},
+            {title: "Example 2", inline: "span", classes: "example2"},
+            {title: "Table styles"},
+            {title: "Table row 1", selector: "tr", classes: "tablerow1"}
+        ],
+        external_filemanager_path: "<?php echo site_url('filemanager/'); ?>",
+        filemanager_title: "Responsive Filemanager",
+        external_plugins: {"filemanager": "<?php echo site_url('filemanager/plugin.min.js'); ?>"}
+    });
+</script>
