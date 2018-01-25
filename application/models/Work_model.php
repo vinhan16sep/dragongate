@@ -87,4 +87,3 @@
             return $this->db->get()->num_rows();
         }
 	}
-?>

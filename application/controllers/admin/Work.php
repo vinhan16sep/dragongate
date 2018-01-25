@@ -72,8 +72,7 @@
 			$this->data['service_array'] = $this->convert_dropdown($services);
 			$this->form_validation->set_rules('title', 'Tiêu đề', 'required');
 			$this->form_validation->set_rules('url', 'Đường dẫn', 'required');
-			// echo '<pre>';
-			// print_r($this->input->post());die;
+
 			if($this->input->post()){
 				if($this->form_validation->run() == true){
 					$image = $this->upload_image('image', $_FILES['image']['name'], 'assets/upload/works', '');
@@ -165,4 +164,3 @@
 			$this->output->set_status_header(200)->set_output(json_encode(array('sub_service' => $sub_service)));
 		}
 	}
-?>
