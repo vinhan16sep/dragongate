@@ -16,43 +16,38 @@
                         echo form_input('title', set_value('title', $work['title']), 'class="form-control" id="title"');
                         ?>
                     </div>
-
                     <div class="form-group">
                         <?php
-                        echo form_label('Url', 'url');
+                        echo form_label('Đường dẫn', 'url');
                         echo form_error('url');
-                        echo form_input('url', set_value('url', $work['url']), 'class="form-control" id="url"');
+                        echo form_input('url', set_value('url', $work['url']), 'class="form-control"');
                         ?>
                     </div>
-
                     <div class="form-group">
                         <?php
                         echo form_label('Thể loại', 'type');
                         echo form_error('type');
-                        echo form_dropdown('type', set_value('type', $types),$work['type'], 'class="form-control" id="type"');
+                        echo form_dropdown('type', set_value('type', array(0 => 'Hình ảnh', 1 => 'Video'), $work['type']),'', 'class="form-control"');
                         ?>
                     </div>
-
                     <div class="form-group">
                         <?php
                         echo form_label('Dịch vụ', 'service');
                         echo form_error('service');
-                        echo form_dropdown('service', set_value('service', $service_array),$work['service_id'], 'class="form-control" id="service"');
+                        echo form_dropdown('service', set_value('service', $service_array),$work['service_id'], 'class="form-control" id="search_service"');
                         ?>
                     </div>
-
                     <div class="form-group">
                         <?php
-                        echo form_label('Dịch vụ con', 'sub_service');
+                        echo form_label('Hạng mục', 'sub_service');
                         echo form_error('sub_service');
-                        echo form_dropdown('sub_service', set_value('sub_service'),$work['sub_service_id'], 'class="form-control" id="sub_service"');
+                        echo form_dropdown('sub_service', set_value('sub_service', 'Chọn hạng mục'),$work['sub_service_id'], 'class="form-control" id="search_sub_service"');
                         ?>
                     </div>
-
                     <div class="form-group picture">
                         <label for="image">Hình ảnh đang sử dụng</label>
                         <br>
-                        <img src="<?php echo base_url('assets/upload/service/'.$work['image']) ?>">
+                        <img src="<?php echo base_url('assets/upload/works/'.$work['image']) ?>" width="150">
                     </div>
 
                     <div class="form-group picture">
@@ -91,7 +86,6 @@
     </section>
 </div>
 <script type="text/javascript" src="<?php echo site_url('tinymce/tinymce.min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo site_url('assets/admin/js/admin/work.js'); ?>"></script>
 <script>
     tinymce.init({
         selector: ".content",
@@ -118,5 +112,44 @@
         external_filemanager_path: "<?php echo site_url('filemanager/'); ?>",
         filemanager_title: "Responsive Filemanager",
         external_plugins: {"filemanager": "<?php echo site_url('filemanager/plugin.min.js'); ?>"}
+    });
+
+    var base_url = location.protocol + "//" + location.host + (location.port ? ':' + location.port : '');
+    $('#search_service').each(function () {
+        var service_id = $(this).val();
+        jQuery.ajax({
+            method: "get",
+            url: base_url + "/dragongate/admin/work/get_sub_service",
+            // url: location.protocol + "//" + location.host + (location.port ? ':' + location.port : '') + "/tuoithantien/comment/create_comment",
+            data: {service_id : service_id},
+            success: function(result){
+                $('#search_sub_service').html('');
+                var sub_service = JSON.parse(result).sub_service;
+                console.log(sub_service);
+                $.each(sub_service, function(key, value){
+                    $('#search_sub_service').append('<option value="'+value.id+'">'+value.title+'</option>');
+                });
+                
+            }
+        });
+    });
+
+    $('#search_service').change(function () {
+        var service_id = $(this).val();
+        jQuery.ajax({
+            method: "get",
+            url: base_url + "/dragongate/admin/work/get_sub_service",
+            // url: location.protocol + "//" + location.host + (location.port ? ':' + location.port : '') + "/tuoithantien/comment/create_comment",
+            data: {service_id : service_id},
+            success: function(result){
+                $('#search_sub_service').html('');
+                var sub_service = JSON.parse(result).sub_service;
+                console.log(sub_service);
+                $.each(sub_service, function(key, value){
+                    $('#search_sub_service').append('<option value="'+value.id+'">'+value.title+'</option>');
+                });
+                
+            }
+        });
     });
 </script>
