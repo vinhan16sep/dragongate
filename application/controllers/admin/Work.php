@@ -7,7 +7,6 @@
 		}
 
 		public function index(){
-			$this->output->enable_profiler(TRUE);
 			$this->load->model('service_model');
 			$this->data['services'] = $this->service_model->get_all();
 			
@@ -39,7 +38,7 @@
 			$this->load->library('pagination');
 			$config = array();
 			$base_url = base_url('admin/work/index');
-			$per_page = 3;
+			$per_page = 10;
 			$uri_segment = 4;
 			foreach ($this->pagination_config($base_url, $total_rows, $per_page, $uri_segment) as $key => $value) {
 	            $config[$key] = $value;

@@ -7,10 +7,25 @@ class Works extends Public_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->model('work_model');
     }
 
     public function index(){
         $this->render('works_view');
+    }
+
+    function get_lazy_load_data(){
+        $ids = $this->input->get('ids');
+
+        $result = $this->data['images'] = $this->work_model->get_all_lazy_load($ids);
+        $this->output->set_output(json_encode($result));
+    }
+
+    function get_lazy_load_data_for_search(){
+        $title = $this->input->get('name');
+
+        $result = $this->data['images'] = $this->work_model->search_lazy_load($title);
+        $this->output->set_output(json_encode($result));
     }
 
     public function detail(){
