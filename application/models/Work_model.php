@@ -86,4 +86,60 @@
             }
             return $this->db->get()->num_rows();
         }
+
+        public function fetch_all_by_type($limit = NULL, $start = NULL, $type = null){
+            $this->db->select('work.*, service.title as service_title, sub_service.title as sub_service_title');
+            $this->db->from('work');
+            $this->db->join('service', 'service.id = work.service_id');
+            $this->db->join('sub_service', 'sub_service.id = work.sub_service_id');
+            $this->db->where('work.is_deleted', 0);
+
+            if($type != null){
+                $this->db->where('work.type', $type);
+            }
+            $this->db->limit($limit, $start);
+            $this->db->order_by('work.id', 'desc');
+            $query = $this->db->get();
+
+            if($query->num_rows() > 0){
+                return $query->result_array();
+            }
+
+            return false;
+        }
+
+        public function count_by_type($type = null) {
+            $this->db->select('*')
+             ->from('work');
+            $this->db->where('is_deleted', 0);
+            if($type != null){
+                $this->db->where('type', $type);
+            }
+            return $this->db->get()->num_rows();
+        }
+
+        public function get_all_lazy_load($ids = array()){
+            $this->db->select('*');
+            $this->db->from('work');
+            $this->db->where('is_deleted', 0);
+            if(!empty($ids)){
+                $this->db->where_not_in('id', $ids);
+            }
+            $this->db->limit(3);
+            $this->db->order_by('rand()');
+
+            return $result = $this->db->get()->result_array();
+        }
+
+        public function search_lazy_load($title){
+        $this->db->select('*');
+        $this->db->from('work');
+        $this->db->where('is_deleted', 0);
+        $this->db->like('title', $title);
+        $this->db->order_by('rand()');
+
+        return $result = $this->db->get()->result_array();
+    }
+
+
 	}
