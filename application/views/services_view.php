@@ -26,48 +26,22 @@
     <div class="container">
         <h2>We provide wide range of <br>business services.</h2>
         <div class="row">
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single-service">
-                    <i class="fa fa-film tran3s"></i>
-                    <p>Film Making</p>
-                    <h6><a href="#" class="tran3s">Professional IT services <br>by our expert</a></h6>
-                </div> <!-- /.single-service -->
-            </div> <!-- /.col- -->
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single-service">
-                    <i class="fa fa-television tran3s"></i>
-                    <p>Content Production</p>
-                    <h6><a href="#" class="tran3s">Complete Business solution <br>global organisations</a></h6>
-                </div> <!-- /.single-service -->
-            </div> <!-- /.col- -->
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single-service">
-                    <i class="fa fa-camera-retro tran3s"></i>
-                    <p>Photography</p>
-                    <h6><a href="#" class="tran3s">Managed company services <br>and solutions</a></h6>
-                </div> <!-- /.single-service -->
-            </div> <!-- /.col- -->
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single-service">
-                    <i class="fa fa-calendar-check-o tran3s"></i>
-                    <p>Event Planning</p>
-                    <h6><a href="#" class="tran3s">We have expert to create <br>online cantant</a></h6>
-                </div> <!-- /.single-service -->
-            </div> <!-- /.col- -->
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single-service">
-                    <i class="fa fa-line-chart tran3s"></i>
-                    <p>Digital Marketing</p>
-                    <h6><a href="#" class="tran3s">Provide all kind of design &amp; <br>development Services</a></h6>
-                </div> <!-- /.single-service -->
-            </div> <!-- /.col- -->
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single-service">
-                    <i class="fa fa-pencil tran3s"></i>
-                    <p>Graphic Design</p>
-                    <h6><a href="#" class="tran3s">Boost your website traffice <br>by using our tools</a></h6>
-                </div> <!-- /.single-service -->
-            </div> <!-- /.col- -->
+            <?php if ($services): ?>
+                <?php foreach ($services as $key => $value): ?>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="single-service">
+                            <!-- <i class="fa fa-film tran3s"></i> -->
+                            <?php if ($value['image']): ?>
+                                <img src="<?php echo base_url('assets/upload/service/'.$value['image']) ?>">
+                            <?php else: ?>
+                                <img src="<?php echo base_url('assets/public/img/blog/1.jpg') ?>">
+                            <?php endif ?>
+                            <p><?php echo $value['title'] ?></p>
+                            <h6><a href="#" class="tran3s"><?php echo $value['description'] ?></a></h6>
+                        </div> <!-- /.single-service -->
+                    </div> <!-- /.col- -->
+                <?php endforeach ?>
+            <?php endif ?>
         </div> <!-- /.row -->
     </div> <!-- /.container -->
 </div> <!-- /.service-version-one -->
