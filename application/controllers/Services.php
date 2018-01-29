@@ -7,9 +7,12 @@ class Services extends Public_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->model('service_model');
     }
 
     public function index(){
+    	$this->data['services'] = $this->service_model->get_all();
+
         $this->render('services_view');
     }
 }
