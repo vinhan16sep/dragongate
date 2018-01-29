@@ -22,7 +22,7 @@
             </div>
 
             <div >
-                <a type="button" href="<?php echo site_url('admin/subservice/create'); ?>" class="btn btn-primary">THÊM MỚI DỊCH VỤ</a>
+                <a type="button" href="<?php echo site_url('admin/subservice/create'); ?>" class="btn btn-primary">THÊM MỚI HẠNG MỤC</a>
             </div>
             <div >
                 <div style="margin-top: 10px;">
