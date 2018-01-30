@@ -16,9 +16,10 @@
                 </div>
             </div>
             <div class="col-md-9 col-sm-6 col-xs-12 footer-subscribe">
-                <h4>Subscribe Us</h4>
-                <form action="#">
-                    <input type="text" placeholder="Enter your mail">
+                <form action="#" method="post">
+                    <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
+                    <input type="text" name="subscribe" placeholder="Enter your mail" style="width: 70%" id="subscribe">
+                    <input type="submit" value="Subscribe Us" style="width: 20%" class="btn btn-warning active btn-subscribe" disabled>
                 </form>
                 <ul>
                     <li><a href="" class="tran3s"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -49,4 +50,37 @@
 
 </div> <!-- /.main-page-wrapper -->
 </body>
+<script type="text/javascript">
+    var base_url = location.protocol + "//" + location.host + (location.port ? ':' + location.port : '');
+    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    var email = null;
+    $('.btn-subscribe').click(function(){
+        var cct = '<?php echo $this->security->get_csrf_hash() ?>';
+        var get_csrf_token_name = '<?php echo $this->security->get_csrf_token_name() ?>';
+        $.ajax({
+            url : base_url + '/dragongate/subscribe/save',
+            type:'post',
+            dataType:"text",
+            data:{ <?php echo $this->security->get_csrf_token_name() ?> :cct, email : email },
+            success : function (result){
+                if(JSON.parse(result).isExitsts == true){
+                    alert('Thanks for subscribing');
+                    $('#subscribe').val('');
+                }else{
+                    alert('Email đã tồn tại');
+                    location.reload();
+                }
+            }
+        });
+        return false;
+        
+    });
+    $('#subscribe').keyup(function(){
+        email = $('#subscribe').val();
+        if(filter.test(email)){
+            $('.btn-subscribe').prop('disabled', false);
+        }
+    });
+    
+</script>
 </html>
