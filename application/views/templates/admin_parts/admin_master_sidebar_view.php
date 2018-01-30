@@ -63,6 +63,14 @@
                     </a>
                 </li>
 
+                <li class="">
+                    <a href="<?php echo base_url('admin/subscribe/index'); ?>">
+                        <i class="fa fa-picture-o" aria-hidden="true"></i>
+                        <span>Đăng ký</span>
+                        <span class="pull-right-container"></span>
+                    </a>
+                </li>
+
             </ul>
             
         </section>

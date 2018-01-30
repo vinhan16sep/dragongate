@@ -1322,7 +1322,7 @@ footer .footer-subscribe input {
   padding: 0 20px;
   background: transparent;
 }
-footer .footer-subscribe form {padding: 15px 0 35px 0;}
+footer .footer-subscribe form {padding: 0px 0 35px 0;}
 footer .footer-subscribe ul li {display: inline-block;}
 footer .footer-subscribe ul li a {
   color: #b4b5b6;
