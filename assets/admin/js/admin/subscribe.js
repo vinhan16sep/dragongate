@@ -62,13 +62,12 @@ $(document).ready(function(){
                 },
                 success: function(res){
                     $("#encypted_ppbtn_all").css('display','none');
-                    var check = JSON.parse(res).isExitsts;
-                    if(check == true){
-                        alert('Gửi thành công đến tất cả email đánh dấu');
+                    var check = JSON.parse(res);
+                    if(check == null){
+                        alert('Gửi thành công đến tất cả email được đánh dấu');
                     }else{
-                        alert('Gửi mail thất bại');
-                    }
-                    
+                        alert('Các email không gửi thành công: '+check);
+                    }                  
                 }
             });
         }else{

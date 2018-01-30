@@ -69,12 +69,8 @@ class Subscribe extends Admin_Controller{
     public function send_mail_all(){
         $ids = $this->input->get('ids');
         $emails = $this->subscribe_model->getById($ids);
-        $email_array = array();
+        $emails_false = array();
         foreach ($emails as $key => $value) {
-            $email_array[] = $value['email'];
-        }
-
-        foreach ($email_array as $key => $value) {
             $mail = new PHPMailer();
             $mail->IsSMTP(); // set mailer to use SMTP
             $mail->Host = "smtp.gmail.com"; // specify main and backup server
@@ -84,7 +80,7 @@ class Subscribe extends Admin_Controller{
             $mail->Username = "nghemalao@gmail.com"; // your SMTP username or your gmail username
             $mail->Password = "Huongdan1"; // your SMTP password or your gmail password
             $from = "nghemalao@gmail.com"; // Reply to this email
-            $to = $value; // Recipients email ID
+            $to = $value['email']; // Recipients email ID
             $name = 'WEBMAIL'; // Recipient's name
             $mail->From = $from;
             $mail->FromName = $name; // Name to indicate where the email came from when the recepient received
@@ -92,25 +88,21 @@ class Subscribe extends Admin_Controller{
             $mail->CharSet = 'UTF-8';
             $mail->WordWrap = 50; // set word wrap
             $mail->IsHTML(true); // send as HTML
-            $mail->Subject = "Mail từ " . strip_tags($value);
+            $mail->Subject = "test header";
 
-            $mail->Body = $this->email_template($value); //HTML Body
+            $mail->Body = $this->email_template($value['email']); //HTML Body
+
+            if(!$mail->Send()){
+                $emails_false[] = $value['email'];
+            }
+
         }
-        if(!$mail->Send()){
-            $isExitsts = false;
-        } else {
-            $isExitsts = true;
-        }
-        $this->output->set_status_header(200)->set_output(json_encode(array('isExitsts' => $isExitsts)));
+        $this->output->set_status_header(200)->set_output(json_encode($emails_false));
         
     }
 
     public function email_template($data){
-        $message = '<html><body>';
-        $message .= '<p>Chào Admin, bạn có mail mới từ người dùng trên website</p>';
-        $message .= '<p>Thông tin như sau:</p>';
-        $message .= '<p>Email: ' . $data . '</p>';
-        $message .= "</body></html>";
+        $message = 'Test body';
 
         return $message;
     }
