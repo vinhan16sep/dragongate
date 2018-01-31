@@ -10,13 +10,13 @@
                     echo form_open_multipart('', array('class' => 'form-horizontal'));
                     ?>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <?php
                         echo form_label('Dịch vụ', 'service');
                         echo form_error('service');
                         echo form_dropdown('service', set_value('service', $service_array),'', 'class="form-control"');
                         ?>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <?php
                         echo form_label('Tiêu đề', 'title');
