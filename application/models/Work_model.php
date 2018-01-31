@@ -4,16 +4,12 @@
 			parent::__construct();
 		}
 
-		public function fetch_all($limit = NULL, $start = NULL, $like = null, $service_id = null, $sub_service_id = null){
+		public function fetch_all($limit = NULL, $start = NULL, $like = null, $sub_service_id = null){
             $this->db->select('work.*, sub_service.title as sub_service_title');
             $this->db->from('work');
             // $this->db->join('service', 'service.id = work.service_id');
             $this->db->join('sub_service', 'sub_service.id = work.sub_service_id');
             $this->db->where('work.is_deleted', 0);
-
-            if($service_id != null){
-                $this->db->where('work.service_id', $service_id);
-            }
             if($sub_service_id != null){
                 $this->db->where('work.sub_service_id', $sub_service_id);
             }
@@ -151,6 +147,25 @@
             $this->db->order_by('rand()');
 
             return $result = $this->db->get()->result_array();
+        }
+
+        public function get_all($limit = NULL, $start = NULL, $sub_service_id = null){
+            $this->db->select('work.*, sub_service.title as sub_service_title');
+            $this->db->from('work');
+            $this->db->join('sub_service', 'sub_service.id = work.sub_service_id');
+            $this->db->where('work.is_deleted', 0);
+            if($sub_service_id != null){
+                $this->db->where('work.sub_service_id', $sub_service_id);
+            }
+            $this->db->limit($limit, $start);
+            $this->db->order_by('work.id', 'desc');
+            $query = $this->db->get();
+
+            if($query->num_rows() > 0){
+                return $query->result_array();
+            }
+
+            return false;
         }
 
 
