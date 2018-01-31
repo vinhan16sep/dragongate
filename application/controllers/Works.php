@@ -11,6 +11,9 @@ class Works extends Public_Controller {
     }
 
     public function index(){
+        $this->load->model('sub_service_model');
+        $sub_service = $this->sub_service_model->get_all();
+        $this->data['sub_service'] = $sub_service;
         $this->render('works_view');
     }
 

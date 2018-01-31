@@ -35,7 +35,7 @@
                             <tr>
                                 <td><b><a href="#">Hình ảnh</a></b></td>
                                 <td><b><a href="#">Tiêu đề</a></b></td>
-                                <td><b><a href="#">Danh mục</a></b></td>
+                                <!-- <td><b><a href="#">Danh mục</a></b></td> -->
                                 <td><b><a href="#">Hạng mục</a></b></td>
                                 <td><b><a href="#">Thể loại</a></b></td>
                                 <td><b><a href="#">Giới thiệu</a></b></td>
@@ -46,7 +46,7 @@
                                 <tr>
                                     <td><img src="<?php echo base_url('assets/upload/works/'.$value['image']) ?>"></td>
                                     <td><?php echo $value['title'] ?></td>
-                                    <td><?php echo $value['service_title'] ?></td>
+                                    <!-- <td><?php echo $value['service_title'] ?></td> -->
                                     <td><?php echo $value['sub_service_title'] ?></td>
                                     <td>
                                         <?php

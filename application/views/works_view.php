@@ -81,13 +81,7 @@
             if(search == true){
                 search_detect = 'item-search';
             }
-            var type = "";
-            if(data.type == 0){
-                type = "photography";
-            }else{
-                type = "video";
-            }
-            var html_item = '<div class="col-md-4 col-sm-6 col-xs-12 item '+ type +'" id="' + data.id + '">'
+            var html_item = '<div class="col-md-4 col-sm-6 col-xs-12 item mix '+ data.sub_service_id +'" id="' + data.id + '" data-subId="'+data.sub_service_id+'" >'
                                 + '<h4>'+data.title+'</h4>'
                                 + '<div class="single-item">';
                                     if(data.image != ''){
@@ -138,18 +132,20 @@
 
         <div class="mixitUp-menu">
             <h2>We’ve done lot’s of work, Let’s <br>Check some from here</h2>
-            <div class="search col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                <input type="text" class="form-control" placeholder="Tìm kiếm ..." id="Search">
-            </div>
+            
             <ul>
                 <li class="filter active tran3s" data-filter="all">All</li>
-                <li class="filter tran3s" data-filter=".video">Video</li>
-                <li class="filter tran3s" data-filter=".photography">Photography</li>
-
+                <?php foreach ($sub_service as $key => $value): ?>
+                    <li class="filter tran3s btn-service" data-filter=".<?php echo $value['id'] ?>"><?php echo $value['title'] ?></li>
+                <?php endforeach ?>
+                <div class="search col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm ..." id="Search">
+                </div>
             </ul>
+
         </div> <!-- End of .mixitUp-menu -->
         
-        <div class="row listing">
+        <div class="row listing" id="mixitUp-item">
             <span id="loading">Loading Please wait...</span>
         </div> <!-- /.row -->
     </div> <!-- /.container -->

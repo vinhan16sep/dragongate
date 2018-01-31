@@ -30,18 +30,18 @@
                         echo form_dropdown('type', set_value('type', array(0 => 'Hình ảnh', 1 => 'Video'), $work['type']),'', 'class="form-control"');
                         ?>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <?php
                         echo form_label('Dịch vụ', 'service');
                         echo form_error('service');
                         echo form_dropdown('service', set_value('service', $service_array),$work['service_id'], 'class="form-control" id="search_service"');
                         ?>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <?php
                         echo form_label('Hạng mục', 'sub_service');
                         echo form_error('sub_service');
-                        echo form_dropdown('sub_service', set_value('sub_service', 'Chọn hạng mục'),$work['sub_service_id'], 'class="form-control" id="search_sub_service"');
+                        echo form_dropdown('sub_service', set_value('sub_service', $sub_services_array),$work['sub_service_id'], 'class="form-control" id="search_sub_service"');
                         ?>
                     </div>
                     <div class="form-group picture">

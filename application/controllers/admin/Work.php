@@ -66,9 +66,9 @@
 			$this->load->helper('form');
 			$this->load->library('form_validation');
 
-			$this->load->model('service_model');
-			$services = $this->service_model->get_all();
-			$this->data['service_array'] = $this->convert_dropdown($services);
+			$this->load->model('sub_service_model');
+			$sub_services = $this->sub_service_model->get_all();
+			$this->data['sub_services_array'] = $this->convert_dropdown($sub_services);
 			$this->form_validation->set_rules('title', 'Tiêu đề', 'required');
 			$this->form_validation->set_rules('url', 'Đường dẫn', 'required');
 
@@ -81,7 +81,7 @@
 	                        'url' => $this->input->post('url'),
 	                        'type' => $this->input->post('type'),
 	                        'description' => $this->input->post('description'),
-	                        'service_id' => $this->input->post('service'),
+	                        // 'service_id' => $this->input->post('service'),
 	                        'sub_service_id' => $this->input->post('sub_service'),
 	                        'content' => $this->input->post('content'),
 	                        'created_at'    => $this->author_info['created_at'],
@@ -105,9 +105,9 @@
 		public function edit(){
 			$id = $this->uri->segment(4);
 
-			$this->load->model('service_model');
-			$services = $this->service_model->get_all();
-			$this->data['service_array'] = $this->convert_dropdown($services);
+			$this->load->model('sub_service_model');
+			$sub_services = $this->sub_service_model->get_all();
+			$this->data['sub_services_array'] = $this->convert_dropdown($sub_services);
 			$work = $this->work_model->getById($id);
 			$this->data['work'] = $work;
 			$this->load->helper('form');
@@ -121,7 +121,7 @@
 	                        'url' => $this->input->post('url'),
 	                        'type' => $this->input->post('type'),
 	                        'description' => $this->input->post('description'),
-	                        'service_id' => $this->input->post('service'),
+	                        // 'service_id' => $this->input->post('service'),
 	                        'sub_service_id' => $this->input->post('sub_service'),
 	                        'content' => $this->input->post('content'),
 	                        'modified_at'   => $this->author_info['modified_at'],
@@ -132,8 +132,8 @@
 					}
 	                    try {
 	                    	if($this->work_model->update($id, $data) == true){
-	                    		if(!empty($image) && $image != $sub_service['image']){
-	                    			unlink('assets/upload/sub_service/'.$sub_service['image']);
+	                    		if(!empty($image) && $image != $work['image'] && file_exists('assets/upload/works/'.$work['image'])){
+	                    			unlink('assets/upload/works/'.$work['image']);
 	                    		}
 	                    	}
 	                        $this->session->set_flashdata('message', 'Cập nhật dịch vụ thành công');

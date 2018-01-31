@@ -5,9 +5,9 @@
 		}
 
 		public function fetch_all($limit = NULL, $start = NULL, $like = null, $service_id = null, $sub_service_id = null){
-            $this->db->select('work.*, service.title as service_title, sub_service.title as sub_service_title');
+            $this->db->select('work.*, sub_service.title as sub_service_title');
             $this->db->from('work');
-            $this->db->join('service', 'service.id = work.service_id');
+            // $this->db->join('service', 'service.id = work.service_id');
             $this->db->join('sub_service', 'sub_service.id = work.sub_service_id');
             $this->db->where('work.is_deleted', 0);
 
@@ -132,14 +132,26 @@
         }
 
         public function search_lazy_load($title){
-        $this->db->select('*');
-        $this->db->from('work');
-        $this->db->where('is_deleted', 0);
-        $this->db->like('title', $title);
-        $this->db->order_by('rand()');
+            $this->db->select('*');
+            $this->db->from('work');
+            $this->db->where('is_deleted', 0);
+            $this->db->like('title', $title);
+            $this->db->order_by('rand()');
 
-        return $result = $this->db->get()->result_array();
-    }
+            return $result = $this->db->get()->result_array();
+        }
+
+        public function get_by_sub_service_id($id){
+            $this->db->select('*');
+            $this->db->from('work');
+            $this->db->where('is_deleted', 0);
+            if($id != null){
+                $this->db->where('sub_service_id', $id);
+            }
+            $this->db->order_by('rand()');
+
+            return $result = $this->db->get()->result_array();
+        }
 
 
 	}

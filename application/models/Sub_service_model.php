@@ -111,5 +111,15 @@
 
             return false;
         }
+
+        public function get_all(){
+            
+            $this->db->select('*');
+            $this->db->from('sub_service');
+            $this->db->where('is_deleted', 0);
+            $this->db->order_by("id", "desc");
+
+            return $result = $this->db->get()->result_array();
+        }
     }
 ?>

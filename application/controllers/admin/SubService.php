@@ -73,7 +73,7 @@
 	                        'title' => $this->input->post('title'),
 	                        'image' => $image,
 	                        'description' => $this->input->post('description'),
-	                        'service_id' => $this->input->post('service'),
+	                        // 'service_id' => $this->input->post('service'),
 	                        'content' => $this->input->post('content'),
 	                        'created_at'    => $this->author_info['created_at'],
 	                        'created_by'    => $this->author_info['created_by'],
@@ -110,7 +110,7 @@
 					$data = array(
 	                        'title' => $this->input->post('title'),
 	                        'description' => $this->input->post('description'),
-	                        'service_id' => $this->input->post('service'),
+	                        // 'service_id' => $this->input->post('service'),
 	                        'content' => $this->input->post('content'),
 	                        'created_at'    => $this->author_info['created_at'],
 	                        'created_by'    => $this->author_info['created_by'],
