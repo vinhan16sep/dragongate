@@ -22,10 +22,21 @@
                     <input type="submit" value="Subscribe Us" style="width: 20%" class="btn btn-warning active btn-subscribe" disabled>
                 </form>
                 <ul>
-                    <li><a href="" class="tran3s"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href="" class="tran3s"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                    <li><a href="" class="tran3s"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                    <li><a href="" class="tran3s"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                    <li>
+                        <a href="https://www.facebook.com/dragongatevn/" class="tran3s" target="_blank">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.flickr.com/photos/148965014@N03/" class="tran3s" target="_blank">
+                            <i class="fa fa-flickr" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/channel/UC9DX0mBu6bZXSGm1uPAIRfA" class="tran3s" target="_blank">
+                            <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div> <!-- /.row -->

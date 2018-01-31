@@ -5,3 +5,16 @@
     position: relative;
     margin-bottom: 190px;
 }
+
+.single-service ul{
+    padding-left: 15px;
+}
+
+.single-service ul li{
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.single-service .fa{
+    color: #e67e22;
+}
