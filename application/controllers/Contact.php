@@ -20,9 +20,15 @@ class Contact extends Public_Controller {
     }
 
     public function create(){
-        $params = array();
-        parse_str($this->input->post('input'), $params);
-
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        $params = array(
+            'email' => $this->input->get('email'),
+            'sub' => $this->input->get('sub'),
+            'message' => $this->input->get('message'),
+        );
+        // parse_str($this->input->post('input'), $params);
+        // print_r($params);die;
         $send = $this->send_mail($params);
 
         if($send == false){
@@ -42,8 +48,8 @@ class Contact extends Public_Controller {
         $mail->Port = 465; // set the port to use
         $mail->SMTPAuth = true; // turn on SMTP authentication
         $mail->SMTPSecure = 'ssl';
-        $mail->Username = "minhtruong93gtvt@gmail.com"; // your SMTP username or your gmail username
-        $mail->Password = "minhtruong"; // your SMTP password or your gmail password
+        $mail->Username = "nghemalao@gmail.com"; // your SMTP username or your gmail username
+        $mail->Password = "Huongdan1"; // your SMTP password or your gmail password
         $from = "minhtruong93gtvt@gmail.com"; // Reply to this email
         $to = "truong.do@matocreative.vn"; // Recipients email ID
         $name = 'WEBMAIL'; // Recipient's name
@@ -53,7 +59,7 @@ class Contact extends Public_Controller {
         $mail->CharSet = 'UTF-8';
         $mail->WordWrap = 50; // set word wrap
         $mail->IsHTML(true); // send as HTML
-        $mail->Subject = "Mail từ " . strip_tags($data['name']);
+        $mail->Subject = "Mail từ " . strip_tags($data['sub']);
 
         $mail->Body = $this->email_template($data); //HTML Body
 
@@ -70,20 +76,20 @@ class Contact extends Public_Controller {
         $message = '<html><body>';
         $message .= '<p>Chào Admin, bạn có mail mới từ người dùng trên website</p>';
         $message .= '<p>Thông tin như sau:</p>';
-        $message .= '<p>Họ tên: ' . $data['name'] . '</p>';
+        // $message .= '<p>Họ tên: ' . $data['name'] . '</p>';
         $message .= '<p>Email: ' . $data['email'] . '</p>';
-        $message .= '<p>Số điện thoại: ' . $data['phone'] . '</p>';
+        // $message .= '<p>Số điện thoại: ' . $data['phone'] . '</p>';
 
-        $options = array(
-            '1' => '',
-            '2' => $this->lang->line('contact_reason_2'),
-            '3' => $this->lang->line('contact_reason_3'),
-            '4' => $this->lang->line('contact_reason_4'),
-            '5' => $this->lang->line('contact_reason_5'),
-        );
+        // $options = array(
+        //     '1' => '',
+        //     '2' => $this->lang->line('contact_reason_2'),
+        //     '3' => $this->lang->line('contact_reason_3'),
+        //     '4' => $this->lang->line('contact_reason_4'),
+        //     '5' => $this->lang->line('contact_reason_5'),
+        // );
 
-        $message .= '<p>Lý do liên hệ: ' . $options[$data['reason']] . '</p>';
-        $message .= '<p>Nội dung: ' . $data['content'] . '</p>';
+        // $message .= '<p>Lý do liên hệ: ' . $options[$data['reason']] . '</p>';
+        $message .= '<p>Nội dung: ' . $data['message'] . '</p>';
         $message .= "</body></html>";
 
         return $message;
