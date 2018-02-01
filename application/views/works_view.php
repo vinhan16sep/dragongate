@@ -113,11 +113,11 @@
 -->
 <div class="inner-page-banner">
     <div class="opacity">
-        <h1>Portfolio</h1>
+        <h1>Works</h1>
         <ul>
             <li><a href="<?php echo base_url('homepage') ?>">Home</a></li>
             <li>/</li>
-            <li>Portfolio</li>
+            <li>Works</li>
         </ul>
     </div> <!-- /.opacity -->
 </div> <!-- /inner-page-banner -->
@@ -136,9 +136,9 @@
             <h2>We’ve done lot’s of work, Let’s <br>Check some from here</h2>
             
             <ul>
-                <li class="filter active tran3s" data-filter="all">All</li>
+                <li class="filter active tran3s" data-filter="all">ALL</li>
                 <?php foreach ($sub_service as $key => $value): ?>
-                    <li class="filter tran3s btn-service" data-filter=".<?php echo $value['title'] ?>"><?php echo $value['title'] ?></li>
+                    <li class="filter tran3s btn-service" data-filter=".<?php echo $value['id'] ?>"><?php echo $value['title'] ?></li>
                 <?php endforeach ?>
                 <!-- <div class="search col-lg-4 col-md-4 col-sm-4 col-xs-6">
                     <input type="text" class="form-control" placeholder="Tìm kiếm ..." id="Search">
@@ -154,14 +154,25 @@
         <div class="row" id="mixitUp-item">
 
             <?php foreach ($works as $key => $value): ?>
-                <div class="item col-md-4 col-sm-6 col-xs-12 mix <?php echo $value['sub_service_title'] ?>">
+                <div class="item col-md-4 col-sm-6 col-xs-12 mix <?php echo $value['sub_service_id'] ?>">
                     <h4><?php echo $value['title'] ?></h4>
                     <div class="single-item">
                         <img src="<?php echo site_url('assets/upload/works/' . $value['image']) ?>" alt="works">
                         <div class="opacity tran3s">
+
+                            <?php if($value['type'] == 0 ): ?>
+
                             <a href="<?php echo $value['url'] ?>" class="view-more tran3s" target="_blank">
                                 <i class="flaticon-plus"></i>
                             </a>
+
+                            <?php else: ?>
+
+                            <a href="<?php echo base_url('works/detail/' . $value['id']) ?>" class="view-more tran3s">
+                                <i class="flaticon-plus"></i>
+                            </a>
+
+                            <?php endif; ?>
                         </div>
                     </div> <!-- /.single-item -->
                 </div> <!-- /.col-md-6 -->

@@ -35,7 +35,32 @@ class Works extends Public_Controller {
         $this->output->set_output(json_encode($result));
     }
 
-    public function detail(){
+    public function detail($id = null){
+        $this->load->model('sub_service_model');
+
+        if(!isset($id)){
+            redirect('works', 'refresh');
+        }
+
+        $work = $this->work_model->get_by_id($id);
+
+        $sub_service = $this->sub_service_model->get_by_id($work['sub_service_id']);
+
+//        echo '<pre>';
+//        print_r($sub_service);die;
+
+        if(!$work){
+            redirect('works', 'refresh');
+        }
+
+        $this->data['work'] = $work;
+        $this->data['sub_service'] = $sub_service;
+
+
+
+
+
+
         $this->render('detail_works_view');
     }
 }
