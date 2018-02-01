@@ -18,6 +18,20 @@
                     </div>
                     <div class="form-group">
                         <?php
+                        echo form_label('Khách hàng', 'customer');
+                        echo form_error('customer');
+                        echo form_input('customer', set_value('customer', $work['customer']), 'class="form-control" id="customer"');
+                        ?>
+                    </div>
+                    <div class="form-group">
+                        <?php
+                        echo form_label('Năm sản xuất ', 'year');
+                        echo form_error('year');
+                        echo form_input('year', set_value('year', $work['year']), 'class="form-control" id="year"');
+                        ?>
+                    </div>
+                    <div class="form-group">
+                        <?php
                         echo form_label('Đường dẫn', 'url');
                         echo form_error('url');
                         echo form_input('url', set_value('url', $work['url']), 'class="form-control"');

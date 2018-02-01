@@ -5,3 +5,11 @@
     position: relative;
     margin-bottom: 190px;
 }
+
+.project-details-wrapper iframe{
+    width: 100%;
+    min-height: 600px;
+
+    padding-top: 30px;
+    padding-bottom: 50px;
+}

@@ -77,6 +77,8 @@
 					$image = $this->upload_image('image', $_FILES['image']['name'], 'assets/upload/works', '');
 					$data = array(
 	                        'title' => $this->input->post('title'),
+                            'customer' => $this->input->post('customer'),
+                            'year' => $this->input->post('year'),
 	                        'image' => $image,
 	                        'url' => $this->input->post('url'),
 	                        'type' => $this->input->post('type'),
