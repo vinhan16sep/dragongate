@@ -11,15 +11,11 @@
 
                     <input type="text" name="search" value="" placeholder="Tìm Kiếm Danh Mục..." class="form-control" style=" width: 40%; float: left;margin-right: 5px;">
                     
-                    <select name="search_service" class="form-control" style="width: 15%; float: left; margin-right: 5px;" id="search_service">
-                        <option value="" selected="selected">Chọn Danh Mục</option>
-                        <?php foreach ($services as $key => $value): ?>
+                    <select name="search_sub_service" class="form-control" style="width: 15%; float: left; margin-right: 5px;" id="search_service">
+                        <option value="" selected="selected">Chọn Hạng Mục</option>
+                        <?php foreach ($sub_services as $key => $value): ?>
                             <option value="<?php echo $value['id'] ?>"><?php echo $value['title'] ?></option>
                         <?php endforeach ?>
-                    </select>
-
-                    <select name="search_sub_service" class="form-control" style="width: 16%; float: left; margin-right: 5px;" id="search_sub_service">
-                        <option value="" selected="selected">Chọn Danh Mục Con</option>
                     </select>
                     <input type="submit" name="btn-search" value="Tìm Kiếm" class="btn btn-primary" style="float: left">
                 </form>
