@@ -67,13 +67,10 @@
             return $this->db->get()->row_array();
         }
 
-        public function count_search($search = null, $service_id = null, $sub_service_id = null) {
+        public function count_search($search = null, $sub_service_id = null) {
             $this->db->select('*')
              ->from('work');
             $this->db->where('is_deleted', 0);
-            if($service_id != null){
-                $this->db->where('service_id', $service_id);
-            }
             if($sub_service_id != null){
                 $this->db->where('sub_service_id', $sub_service_id);
             }

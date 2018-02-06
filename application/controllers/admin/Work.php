@@ -7,32 +7,24 @@
 		}
 
 		public function index(){
-			$this->load->model('service_model');
-			$this->data['services'] = $this->service_model->get_all();
+			$this->load->model('sub_service_model');
+			$this->data['sub_services'] = $this->sub_service_model->get_all();
 			
 
 			$keywords = '';
-			$search_service = "";
 			$search_sub_service = '';
 	        if($this->input->get('search')){
 	            $keywords = $this->input->get('search');
 	        }
-	        if($this->input->get('search_service')){
-	            $search_service = $this->input->get('search_service');
-	        }
 	        if($this->input->get('search_sub_service')){
 	            $search_sub_service = $this->input->get('search_sub_service');
 	        }
-
 	        $total_rows  = $this->work_model->count_search();
 	        if($keywords != ''){
 	            $total_rows  = $this->work_model->count_search($keywords);
 	        }
-	        if($search_service != ''){
-	            $total_rows  = $this->work_model->count_search(null, $search_service);
-	        }
 	        if($search_sub_service != ''){
-	            $total_rows  = $this->work_model->count_search(null, null, $search_sub_service);
+	            $total_rows  = $this->work_model->count_search(null, $search_sub_service);
 	        }
 
 			$this->load->library('pagination');
@@ -48,18 +40,16 @@
 	        $this->data['page_links'] = $this->pagination->create_links();
 	        $this->data['page'] = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
 	        $result = $this->work_model->fetch_all($per_page, $this->data['page']);
+
 	        if($keywords != ''){
 	            $result = $this->work_model->fetch_all($per_page, $this->data['page'], $keywords);
 	        }
-	        if($search_service != ''){
-	            $result = $this->work_model->fetch_all($per_page, $this->data['page'], null, $search_service);
-	        }
 	        if($search_sub_service != ''){
-	            $result = $this->work_model->fetch_all($per_page, $this->data['page'], null, null, $search_sub_service);
+	            $result = $this->work_model->fetch_all($per_page, $this->data['page'], null, $search_sub_service);
 	        }
 	        $this->data['works'] = $result;
 
-				$this->render('admin/work/list_work_view');
+			$this->render('admin/work/list_work_view');
 		}
 
 		public function create(){

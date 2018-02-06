@@ -23,12 +23,6 @@
 	        if($keywords != ''){
 	            $total_rows  = $this->sub_service_model->count_search($keywords, null);
 	        }
-	        if($keywords != ''){
-	            $total_rows  = $this->sub_service_model->count_search(null, $search_service);
-	        }
-	        if($keywords != '' && $keywords != ''){
-	        	$total_rows  = $this->sub_service_model->count_search($keywords, $search_service);
-	        }
 
 			$this->load->library('pagination');
 			$config = array();
@@ -47,13 +41,8 @@
 	        if($keywords != ''){
 	            $result = $this->sub_service_model->fetch_all($per_page, $this->data['page'], $keywords);
 	        }
-	        if($search_service != ''){
-	            $result = $this->sub_service_model->fetch_all($per_page, $this->data['page'], null, $search_service);
-	        }
-	        if($keywords != '' && $keywords != ''){
-	        	$result = $this->sub_service_model->fetch_all($per_page, $this->data['page'], $keywords, $search_service);
-	        }
 	        $this->data['sub_services'] = $result;
+	        $this->data['keywords'] = $keywords;
 
 			$this->render('admin/sub_service/list_sub_service_view');
 		}

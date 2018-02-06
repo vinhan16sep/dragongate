@@ -38,7 +38,7 @@
                 
                 
                 <li class="treeview">
-                    <a href=""><i class="fa fa-graduation-cap" aria-hidden="true"></i> Dịch vụ
+                    <a href=""><i class="fa fa-camera-retro"></i> Dịch vụ
                         <span class="pull-right-container">
                     <span class="label label-primary pull-right">2</span>
                   </span>
@@ -57,7 +57,7 @@
 
                 <li class="">
                     <a href="<?php echo base_url('admin/work/index'); ?>">
-                        <i class="fa fa-picture-o" aria-hidden="true"></i>
+                        <i class="fa fa-bar-chart-o tran3s"></i>
                         <span>Công việc</span>
                         <span class="pull-right-container"></span>
                     </a>
@@ -65,10 +65,32 @@
 
                 <li class="">
                     <a href="<?php echo base_url('admin/subscribe/index'); ?>">
-                        <i class="fa fa-picture-o" aria-hidden="true"></i>
+                        <i class="fa fa-calendar-check-o tran3s"></i>
                         <span>Đăng ký</span>
                         <span class="pull-right-container"></span>
                     </a>
+                </li>
+
+                <li class="treeview">
+                    <a href=""><i class="fa fa-book"></i> About
+                        <span class="pull-right-container">
+                    <span class="label label-primary pull-right">3</span>
+                  </span>
+                    </a>
+
+                    <ul class="treeview-menu">
+                        <li class="">
+                            <a href="<?php echo base_url('admin/about/getIntroduce'); ?>"><i class="fa fa-minus" aria-hidden="true"></i> Giới thiệu</a>
+                        </li>
+
+                        <li class="">
+                            <a href="<?php echo base_url('admin/about/getTeam'); ?>"><i class="fa fa-minus" aria-hidden="true"></i> Thành viên</a>
+                        </li>
+
+                        <li class="">
+                            <a href="<?php echo base_url('admin/about/getPartner'); ?>"><i class="fa fa-minus" aria-hidden="true"></i> Đối tác</a>
+                        </li>
+                    </ul>
                 </li>
 
             </ul>

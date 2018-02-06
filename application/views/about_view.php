@@ -32,27 +32,18 @@
         <img src="<?php echo site_url('assets/public/img/cover/about.png')?>" alt="">
         <div class="about-tab-wrapper clearfix">
             <ul class="nav nav-tabs float-left">
-                <li class="active"><a data-toggle="tab" href="#history">Our History</a></li>
-                <li><a data-toggle="tab" href="#vision">Vision</a></li>
-                <li><a data-toggle="tab" href="#contact">Contact Us</a></li>
+                <?php foreach ($introduce as $key => $value): ?>
+                    <li class="<?php echo ($value['id'] == $active['id'])? 'active' : '' ?>"><a data-toggle="tab" href="#<?php echo $value['id'] ?>"><?php echo $value['title'] ?></a></li>
+                <?php endforeach ?>
                 <!--<li><a data-toggle="tab" href="#news">News</a></li>-->
             </ul>
             <div class="tab-content float-left">
-                <div id="history" class="tab-pane fade in active">
-                    <p>We provide marketing services to startups and small businesses to looking for a partner of their digital media, design &amp; dev, lead generation, and communications requirents. We work with you, not for you. Although we have great resources.</p>
-                    <img src="<?php echo site_url('assets/public/img/home/sign.png')?>" alt="">
-                </div> <!-- /#history -->
-                <div id="vision" class="tab-pane fade">
-                    <p>We provide marketing services to startups and small businesses to looking for a partner of their digital media, design &amp; dev, lead generation, and communications requirents. We work with you, not for you. Although we have great resources.</p>
-                </div> <!-- /#vision -->
-                <div id="contact" class="tab-pane fade">
-                    <p>We provide marketing services to startups and small businesses to looking for a partner of their digital media, design &amp; dev, lead generation, and communications requirents. We work with you, not for you. Although we have great resources.</p>
-                    <br>
-                    <a class="btn btn-primary hvr-icon-forward wow fadeInUp" href="<?php echo base_url('works') ?>" role="button">Feel free to contact us</a>
-                </div> <!-- /#contact -->
-                <!--<div id="news" class="tab-pane fade">
-                    <p>We provide marketing services to startups and small businesses to looking for a partner of their digital media, design &amp; dev, lead generation, and communications requirents. We work with you, not for you. Although we have great resources.</p>
-                </div>--> <!-- /#news -->
+                <?php foreach ($introduce as $key => $value): ?>
+                    <div id="<?php echo $value['id'] ?>" class="tab-pane fade <?php echo ($value['id'] == $active['id'])? 'in active' : '' ?>">
+                        <p><?php echo $value['content'] ?></p>
+                        
+                    </div>
+                <?php endforeach ?>
             </div>
         </div> <!-- /.about-tab-wrapper -->
     </div> <!-- /.container -->
@@ -172,54 +163,24 @@
                 </div>
             </div>
             <?php } ?>-->
-
-            <div class="col-md-4 col-xs-6">
-                <div class="single-team-member">
-                    <div class="image">
-                        <img src="<?php echo site_url('assets/public/img/team/cuong.jpg')?>" alt="team">
-                        <div class="opacity tran3s">
-                            <ul class="tran3s">
-                                <li><a href="" class="tran3s"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="" class="tran3s"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            </ul>
+            
+            <?php foreach ($teams as $key => $value): ?>
+                <div class="col-md-4 col-xs-6">
+                    <div class="single-team-member">
+                        <div class="image">
+                            <img src="<?php echo site_url('assets/upload/about/'.$value['image']) ?>" alt="team">
+                            <div class="opacity tran3s">
+                                <ul class="tran3s">
+                                    <li><a href="<?php echo $value['facebook'] ?>" class="tran3s" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="<?php echo $value['instagram'] ?>" class="tran3s" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
                         </div>
+                        <h6><?php echo $value['name'] ?></h6>
+                        <p><?php echo $value['position'] ?></p>
                     </div>
-                    <h6>Quach Cuong</h6>
-                    <p>Director</p>
                 </div>
-            </div>
-
-            <div class="col-md-4 col-xs-6">
-                <div class="single-team-member">
-                    <div class="image">
-                        <img src="<?php echo site_url('assets/public/img/team/thanh.jpg')?>" alt="team">
-                        <div class="opacity tran3s">
-                            <ul class="tran3s">
-                                <li><a href="" class="tran3s"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="" class="tran3s"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <h6>Le Thanh</h6>
-                    <p>Designer</p>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-xs-6">
-                <div class="single-team-member">
-                    <div class="image">
-                        <img src="<?php echo site_url('assets/public/img/team/dung.jpg')?>" alt="team">
-                        <div class="opacity tran3s">
-                            <ul class="tran3s">
-                                <li><a href="" class="tran3s"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="" class="tran3s"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <h6>Nguyen Dung</h6>
-                    <p>Photographer</p>
-                </div>
-            </div>
+            <?php endforeach ?>
 
         </div> <!-- /.row -->
     </div> <!-- /.container -->
@@ -244,28 +205,13 @@
                 <div class="client-img"><img src="<?php echo site_url('assets/public/img/logo/p-5.png')?>" alt=""></div>
             </div>
             <?php } ?>-->
-
-            <div class="col-md-3 col-xs-6">
-                <div class="client-img"><img src="<?php echo site_url('assets/public/img/customers/c_00.jpg')?>" alt=""></div>
-            </div>
-            <div class="col-md-3 col-xs-6">
-                <div class="client-img"><img src="<?php echo site_url('assets/public/img/customers/c_01.jpg')?>" alt=""></div>
-            </div>
-            <div class="col-md-3 col-xs-6">
-                <div class="client-img"><img src="<?php echo site_url('assets/public/img/customers/c_02.jpg')?>" alt=""></div>
-            </div>
-            <div class="col-md-3 col-xs-6">
-                <div class="client-img"><img src="<?php echo site_url('assets/public/img/customers/c_03.jpg')?>" alt=""></div>
-            </div>
-            <div class="col-md-3 col-xs-6">
-                <div class="client-img"><img src="<?php echo site_url('assets/public/img/customers/c_04.jpg')?>" alt=""></div>
-            </div>
-            <div class="col-md-3 col-xs-6">
-                <div class="client-img"><img src="<?php echo site_url('assets/public/img/customers/c_05.jpg')?>" alt=""></div>
-            </div>
-            <div class="col-md-3 col-xs-6">
-                <div class="client-img"><img src="<?php echo site_url('assets/public/img/customers/c_06.jpg')?>" alt=""></div>
-            </div>
+            
+            <?php foreach ($partner as $key => $value): ?>
+                <div class="col-md-3 col-xs-6">
+                    <div class="client-img"><img src="<?php echo site_url('assets/public/img/customers/'.$value['image'])?>" alt=""></div>
+                </div>
+            <?php endforeach ?>
+            
 
         </div>
     </div> <!-- /.container -->
