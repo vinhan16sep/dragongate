@@ -58,13 +58,13 @@
         }
 
         public function get_by_id($id) {
-            $this->db->select('*');
-            $this->db->from('work');
-            $this->db->where('is_deleted', 0);
-            $this->db->where('id', $id);
-            $this->db->limit(1);
+            $this->db->select('*'); // Lay cai gi
+            $this->db->from('work'); // Lay o dau
+            $this->db->where('is_deleted', 0); // Dieu kien loc
+            $this->db->where('id', $id); // DK loc
+            $this->db->limit(1); // Gioi han
 
-            return $this->db->get()->row_array();
+            return $this->db->get()->row_array(); // tra ra ket qua dang array
         }
 
         public function count_search($search = null, $sub_service_id = null) {

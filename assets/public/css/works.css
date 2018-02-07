@@ -6,7 +6,55 @@
     margin-bottom: 190px;
 }
 
-.project-details-wrapper iframe{
+.single-item .works_title{
+    width: 80%;
+    margin: 40% auto 0;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 1.1;
+    height: 1.7em;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.single-item a.view-more{
+    top: 0 !important;
+    margin-top: 30px !important;
+}
+
+.modal-header {
+    background-color: #e67e22;
+}
+
+.modal-header h4{
+    color: #fff;
+}
+
+.work_cover{
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+
+    margin-bottom: 30px;
+}
+
+.work_cover > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.work_content .row > .left{
+    border-right: 1px solid #333;
+}
+
+.work_content .row > .content{
+    padding-top: 30px;
+}
+
+.work_content iframe{
     width: 100%;
     min-height: 600px;
 

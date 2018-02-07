@@ -10,6 +10,17 @@ class Works extends Public_Controller {
         $this->load->model('work_model');
     }
 
+//    public function index(){
+//        $this->load->model('sub_service_model');
+//        $sub_service = $this->sub_service_model->get_all();
+//
+//        $works = $this->work_model->get_all();
+//        $this->data['sub_service'] = $sub_service;
+//        $this->data['works'] = $works;
+//        // print_r($works);die;
+//        $this->render('works_view');
+//    }
+
     public function index(){
         $this->load->model('sub_service_model');
         $sub_service = $this->sub_service_model->get_all();
@@ -17,8 +28,13 @@ class Works extends Public_Controller {
         $works = $this->work_model->get_all();
         $this->data['sub_service'] = $sub_service;
         $this->data['works'] = $works;
-        // print_r($works);die;
         $this->render('works_view');
+    }
+
+    function call_work_id(){
+        $id = $this->input->get('id');
+        $result = $this->work_model->get_by_id($id);
+        $this->output->set_output(json_encode($result));
     }
 
     function get_lazy_load_data(){
