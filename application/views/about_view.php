@@ -208,7 +208,7 @@
             
             <?php foreach ($partner as $key => $value): ?>
                 <div class="col-md-3 col-xs-6">
-                    <div class="client-img"><img src="<?php echo site_url('assets/public/img/customers/'.$value['image'])?>" alt=""></div>
+                    <div class="client-img"><img src="<?php echo site_url('assets/public/upload/partners/'.$value['image'])?>" alt=""></div>
                 </div>
             <?php endforeach ?>
             

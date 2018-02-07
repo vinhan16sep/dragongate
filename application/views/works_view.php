@@ -298,22 +298,23 @@
                         + '</li>'
                         + '<li>'
                         + '<h6>Project Type:</h6>'
-                        + '<p>' + response.sub_title_id +'</p>'
+                        + '<p>' + response.sub_title +'</p>'
                         + '</li>'
                         + '</ul>'
                         + '</div>'
                         + '<div class="right col-md-8 col-sm-8 col-xs-12">'
                         + '<div class="text">'
                         + '<h6>' + response.description + '</h6>'
-                        + '<p>' + response.content + '</p>'
+                        // + '<p>' + response.content + '</p>'
                         + '</div>'
                         + '</div>'
                         + '<div class="content col-md-12 col-sm-12 col-xs-12">';
+
                         if(response.type == 1){
                             modal_content += '<div class="video"><iframe src="' + base_vid_url + response.url +'" frameborder="0" allowfullscreen></iframe></div>';
                         }
-                        modal_content +=
-                        + '<p>' + response.content + '</p>'
+
+                        modal_content += '<p>' + response.content + '</p>'
                         + '</div>'
                         + '</div>'
                         + '</div>';

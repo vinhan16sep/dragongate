@@ -33,7 +33,11 @@ class Works extends Public_Controller {
 
     function call_work_id(){
         $id = $this->input->get('id');
+        $this->load->model('sub_service_model');
+
         $result = $this->work_model->get_by_id($id);
+//        echo '<pre>';
+//        print_r($result);die;
         $this->output->set_output(json_encode($result));
     }
 
