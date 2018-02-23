@@ -7,7 +7,7 @@
 -->
 <div class="inner-page-banner">
     <div class="opacity">
-        <h1>Contact US</h1>
+        <h1>Contact Us</h1>
         <ul>
             <li><a href="<?php echo base_url('homepage') ?>">Home</a></li>
             <li>/</li>
